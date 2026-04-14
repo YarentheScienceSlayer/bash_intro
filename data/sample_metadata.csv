@@ -1,0 +1,21 @@
+sample_id,organism,gene,tissue,condition
+SEQ_ID_001,Homo sapiens,TP53,lung,tumor
+SEQ_ID_002,Homo sapiens,BRCA1,breast,tumor
+SEQ_ID_003,Homo sapiens,EGFR,lung,tumor
+SEQ_ID_004,Mus musculus,Trp53,lung,control
+SEQ_ID_005,Homo sapiens,MYC,blood,tumor
+SEQ_ID_006,Homo sapiens,GAPDH,liver,control
+SEQ_ID_007,Mus musculus,Gapdh,liver,control
+SEQ_ID_008,Homo sapiens,ACTB,muscle,control
+SEQ_ID_009,Homo sapiens,TNF,blood,tumor
+SEQ_ID_010,Homo sapiens,IL6,blood,tumor
+SEQ_ID_011,Homo sapiens,TP53,lung,tumor
+SEQ_ID_012,Homo sapiens,BRCA1,breast,tumor
+SEQ_ID_013,Homo sapiens,KRAS,colon,tumor
+SEQ_ID_014,Mus musculus,Kras,colon,control
+SEQ_ID_015,Homo sapiens,HER2,breast,tumor
+SEQ_ID_016,Homo sapiens,VEGFA,kidney,tumor
+SEQ_ID_017,Homo sapiens,PTEN,brain,tumor
+SEQ_ID_018,Mus musculus,Pten,brain,control
+SEQ_ID_019,Homo sapiens,CDH1,stomach,tumor
+SEQ_ID_020,Homo sapiens,TP53,lung,tumor
