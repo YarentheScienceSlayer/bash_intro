@@ -1,0 +1,208 @@
+bash
+Terminology(1)
+Hardware: Physical components of a computer system
+CPU
+RAM
+Hard drive/SSD
+Keyboard
+Monitor
+Software: Collection of instructions and data that tells the harware what to do.
+System Software
+Application Software
+Program: Specific set of instructions written in a programming language to perform task.
+
+! Every program is a software but not every software is a program !
+Terminology (2)
+OS, is a collection of software that manages hardware resources and provides services for programs.
+Linux
+macOS
+Windows
+Kernel is the core of the OS . It directly controls the CPU, memory, and hardware devices.
+It acts as the bridge between software and hardware.
+Shell is a program that accepts commands from the user and passes them to the kernel for execution.
+Translator between the user and the machine.
+Terminology (3)
+Command Line Interface-CLI: User interact with the computer by typing text commands.
+
+It's fast, scriptable, and works great over remote connections : e.g.SSH
+
+Graphical User Interface-GUI: User interact through windows, icons, and menus.
+
+More intuitive for beginners but slower for repetitve tasks and not always avaliable on servers.
+Terminology (4)
+Server: a computer designed to process request and deliver data to another computer over a local network or the internet.
+High Performance Computing (HPC) : cluster of many servers networked together to act as a single, massive supercomputer.
+SSH-Secure Shell : a cryptographic network protocol.
+!! Most HPC clusters and cloud servers don't have a GUI. All your genome assemblies, alignments, and analyses will run through the terminal !!
+Why Linux?
+Free & open source : no licensing costs, critical for academic research
+
+Stability : Linux servers can run for years without rebooting
+
+Most bioinformatics tools are built for Linux : tools like GATK, BWA, Samtools, Kraken2, BLAST are all Linux-native
+
+Scripting & automation : easily automate repetitive tasks (e.g., processing 100 samples with one script)
+
+Remote computing : HPC clusters (SLURM, PBS) run Linux
+
+Reproducibility : shell scripts document exactly what you did
+UNIX vs. GNU
+UNIX: developed in 1969 at AT&T Bell Labs by Ken Thompson and Dennis Ritchie.
+GNU(GNU's Not Unix) Project: is a free software project (1983) based on Unix.
+Linux Kernel: Created by Linus Torvalds in 1991.
+GNU /LINUX
+a complete, free operating system
+What is BASH ?
+BASH-(Bourne Again SHell): Written by Brian Fox in 1989 as a free replacement for the original Bourne Shell (sh).
+It's the default shell on most Linux systems .
+Bourne Shell-sh: Written by Stephen R. Bourne at 1976.
+You can check your current shell by typing: echo $SHELL
+File System Organization (1)
+Root (/): Were the address system of the computer starts.
+Everything lives under the root.
+Shown as /
+Home: Where the current user's location starts.
+Shown as ~
+On Windows and Mac home directory is a directory inside directory called Users and on Unix/Linux systems it is called home.
+
+/home/username/         on Linux
+/Users/username/         on Mac
+C:\Users\username\     on Windows
+File System Organization (2)
+Absolute path : adress that starts from either from root(/) or home(~/) location.
+It works from anywhere.
+Relative path : adress that starts from wherever we are currently sitting.
+Each file and directory has it's own address-path.
+.  current directory
+..  parent directory of current directory
+General Syntax
+$ = prompt (shell is ready for input)
+command = the program to run (ls, grep, cat)
+-option/flag = modifies behavior. Use with -  and can be merged.
+argument = what the command acts on (a file, directory, or pattern)
+repl: Read-eval-prınt-loop
+The shell operates in a Read-Eval-Print Loop.
+
+Read : shell reads what you typed
+Eval : shell interprets and executes it
+Print : shell prints the output to screen
+Loop : shell waits for the next command
+Space & Case Sensitive & Extension
+!! Spaces are special !!
+The command line uses spaces to know how to properly break things apart.
+Spaces separate the command, options, and arguments.
+
+This is why it's not ideal to have filenames that contain spaces, but rather it's better to use underscores (_).
+! File names in Linux, like Unix, are case sensitive !
+The file names "File1" and "file1" refer to different files.
+! Linux has no concept of a "file extension" like Windows systems !
+You may name files any way you like.
+However, while Linux itself does not care about file extensions, many application programs do.
+man : Manual
+The man command used to access built-in documentation for commands, utilities, system calls, and library functions
+
+! only for external commands
+help
+The help command specifically designed to provide documentation for other built-in shell commands.
+--help
+The --help flag used to access quick usage information.
+pwd : Print Working Directory
+The pwd command prints the current directory we stand.
+Home directory is first directory opens with terminal.
+cd : Change Directory
+The cd command allows users to move from the current working directory to another specified directory by providing either an absolute path or a relative path.
+cd ..  → Go up one directory level :parent directory
+cd ../..  → Go up two directory levels
+cd -   → Go back to the previous directory
+cd ~  → Go to the home directory
+ls : List
+The ls command list the contents of the current working directory or a specified path.
+
+Lists items in alphabetical order by default.
+ls -l → Long listing format
+ls -lh → Long listing + human-readable sizes
+ls -a → Show all files (including hidden)
+ls -lt → Sort by modification time (newest first)
+ls -lS → Sort by file size (largest first)
+ls -R → Lists files in the current directory and all subdirectories
+ls /data/samples/ → List contents of a specific directory
+Permissions
+ d- rwx
+head & tail
+The head command displays the first 10 lines of a file by default.
+The tail command displays the last 10 lines of a file.
+With -n flag we can specify the line number.
+head -n 3 → print first 3 lines
+head -n -3 → print all lines except last 3 lines
+tail -n 5 → print last 5 lines.
+tail -n +2 → print everything exept the first line
+wc : Word Count
+The wc command is useful for counting how many lines,words, and bytes counts for files.
+-l → print just how many lines are in a file
+-w →print just how many words are in a file
+-c → print just how many bytes are in a file
+-m → print just how many characters are in a file
+💡 wc -l on a FASTQ file gives you total lines. Divide by 4 to get the read count.
+
+cat : concatenate
+The cat command is used to read, display, and combine files directly in the terminal.
+Prints the entire content of a file to the terminal screen.
+💡 Most modern sequencing data comes as .fastq.gz .Use zcat instead of cat so you don't have to decompress first.
+zcat
+cat > myfile.txt
+cat file1.txt file2.txt > merged.txt
+less
+The less command is used for viewing the contents of text files one screenful at a time.
+
+less is like more but much more powerful : you can scroll both forward and backward.
+
+less can handle gzip files directly!
+Space or f → forward one page
+b → back one page
+g → go to beginning
+G → go to end
+/pattern → search forward, n next match, N previous
+?pattern → search backward
+-S → Chops long lines (disables line wrapping)
+q → quit
+file
+It identifies file types by examining their content rather than their file extensions.
+💡 In bioinformatics this is very useful. A file named .txt might actually be gzip-compressed. file reveals the truth regardless of the extension.
+touch
+The touch command creates files.
+cp : Copy
+The cp command duplicates files and directories from one location to another.
+mkdir : Make Directory
+The mkdir command creates directories.
+rm : Remove
+The rm command removes (deletes) files and directories.
+⚠️ There is NO trash bin in the terminal ⚠️
+Deleted = gone forever.
+mv : Move
+The mv command will either move one or more files to a different directory, or it will rename a file or directory.
+rm alone cannot delete directories.
+-r or -R deletes a directory and all of its contents.
+Wildcards
+Wildcards as used at the command line are special characters that enable us to specify multiple items very easily.
+The * means any character, any number of times (including 0 times).
+The ? wildcard represents any character that appears only one time.
+The {} (brace expansion) generates multiple strings by specifying a range or a set of values.
+file_{a,b,c}.txt
+file_{01..100}.txt
+grep : Global Regular Expression Print
+The grep command is used to search for specific text patterns within files or input streams.
+
+-A n → Display n lines After the match.
+-B n → Display n lines Before the match.
+-C n → Display n lines around (both before and after) the match.
+-i → Ignore case: Matches both uppercase and lowercase.
+-c → Count: Returns only the total number of matching lines.
+-w → Whole word: Matches only the exact word, not substrings.
+💡 For searching FASTQ files for specific sequence:
+
+grep -B1 -A2 "XXXX" sequence1.fastq
+Redirector
+Pipe (|) is used to connect multiple commands. It takes the output from the previous command and "pipes" it into the input of the following command.
+Overwrite >  This is used to send the output of a command to a file instead of showing it on your screen.
+If the file already exists, it deletes everything inside and replaces it with the new data. If the file doesn't exist, it creates a new one.
+Append >> It adds the new data to the end of the existing file. It does not delete what was already there.
