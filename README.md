@@ -1,14 +1,6 @@
 # bash_intro
 
-Brief, biology-oriented notes to get comfortable with **Bash** (the Linux command-line shell) and the core commands you’ll use when working on servers, HPC clusters, and bioinformatics datasets (FASTQ/FASTA, logs, results folders, etc.).
 
-## Goals
-By the end of these notes you should be able to:
-- Explain what Bash is (shell vs kernel vs OS)
-- Navigate the filesystem using absolute/relative paths
-- View, search, and summarize text files (including large sequencing files)
-- Safely create/copy/move/remove files and directories
-- Combine commands using pipes and redirection
 
 ## Quick terminology (very brief)
 - **Hardware**: physical parts (CPU, RAM, disk).
@@ -71,7 +63,7 @@ The shell runs in a REPL: **Read → Eval → Print → Loop**.
 - Linux is **case-sensitive** (`File1` ≠ `file1`)
 - Linux doesn’t truly *require* extensions, but programs may still rely on them
 
-## Core commands (with bio examples)
+## Core commands
 
 ### Help / docs
 - `man <cmd>`: manual pages (external commands)
