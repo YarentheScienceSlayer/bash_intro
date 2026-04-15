@@ -1,8 +1,4 @@
-# Bash Cheatsheet for Biology/HPC Use Cases
-
-This cheatsheet provides commonly used Bash commands in the context of biological data analysis and high-performance computing (HPC). Each command includes examples relevant to typical biological files like FASTQ, FASTA, and VCF, along with safety notes where applicable.
-
----
+# Bash Cheatsheet for Biology
 
 ## 1. man/help/--help
 
