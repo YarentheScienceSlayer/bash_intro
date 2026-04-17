@@ -2,7 +2,7 @@
 
 
 
-## Quick terminology (very brief)
+## Quick terminology 
 - **Hardware**: physical parts (CPU, RAM, disk).
 - **Software**: instructions that run on hardware (OS, applications).
 - **Program**: a specific executable set of instructions (a type of software).
