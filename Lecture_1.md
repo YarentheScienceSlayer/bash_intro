@@ -1,4 +1,4 @@
-# bash_intro
+# Bash intro/Lecture 1
 
 
 
