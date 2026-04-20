@@ -88,17 +88,17 @@ NanoPlot is commonly used for Oxford Nanopore QC.
 
 ### From FASTQ
 ```bash
-NanoPlot --fastq reads.fastq -o nanoplot_fastq_report
+NanoPlot --fastq reads.fastq -o results/nanoplot/fastq_report
 ```
 
 ### From gzipped FASTQ
 ```bash
-NanoPlot --fastq reads.fastq.gz -o nanoplot_fastq_gz_report
+NanoPlot --fastq reads.fastq.gz -o results/nanoplot/fastq_gz_report
 ```
 
 ### From BAM
 ```bash
-NanoPlot --bam sample.sorted.bam -o nanoplot_bam_report
+NanoPlot --bam sample.sorted.bam -o results/nanoplot/bam_report
 ```
 
 ### Useful options
@@ -107,7 +107,7 @@ NanoPlot --fastq reads.fastq.gz \
   --N50 \
   --threads 4 \
   --tsv_stats \
-  -o nanoplot_report
+  -o results/nanoplot/report
 ```
 
 ---
@@ -115,15 +115,18 @@ NanoPlot --fastq reads.fastq.gz \
 ## 5) Example mini workflow in Bash
 
 ```bash
+# Create output folders
+mkdir -p results/samtools results/nanoplot
+
 # Sort + index BAM
 samtools sort -o sample.sorted.bam sample.bam
 samtools index sample.sorted.bam
 
 # Generate BAM QC summary
-samtools flagstat sample.sorted.bam > sample.flagstat.txt
+samtools flagstat sample.sorted.bam > results/samtools/sample.flagstat.txt
 
 # Generate NanoPlot report from FASTQ
-NanoPlot --fastq reads.fastq.gz -o nanoplot_report --threads 4
+NanoPlot --fastq reads.fastq.gz -o results/nanoplot/report --threads 4
 ```
 
 ---
