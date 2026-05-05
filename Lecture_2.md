@@ -1,4 +1,4 @@
-# BASH Intro — Lecture 2: Lecture Notes
+#Bash intro/Lecture 2
 
 ---
 
