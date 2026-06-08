@@ -416,10 +416,10 @@
                 <div class="quiz-title">Quiz 1: Hardware vs Software</div>
                 <div class="quiz-content">
                     <p>Which one is NOT hardware?</p>
-                    <div class="quiz-option"><input type="radio" name="q1" value="a"> CPU</div>
-                    <div class="quiz-option"><input type="radio" name="q1" value="b"> RAM</div>
-                    <div class="quiz-option"><input type="radio" name="q1" value="c"> Operating System</div>
-                    <div class="quiz-option"><input type="radio" name="q1" value="d"> Disk</div>
+                    <div class="quiz-option"><input type="radio" id="q1" value="a"> CPU</div>
+                    <div class="quiz-option"><input type="radio" id="q1" value="b"> RAM</div>
+                    <div class="quiz-option"><input type="radio" id="q1" value="c"> Operating System</div>
+                    <div class="quiz-option"><input type="radio" id="q1" value="d"> Disk</div>
                     <button class="btn-primary" onclick="checkQuiz('q1', 'c')">Check Answer</button>
                     <div id="q1-feedback"></div>
                 </div>
@@ -429,10 +429,10 @@
                 <div class="quiz-title">Quiz 2: Operating Systems</div>
                 <div class="quiz-content">
                     <p>Which of these is not an operating system?</p>
-                    <div class="quiz-option"><input type="radio" name="q2" value="a"> Unix</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="b"> MacOS</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="c"> Linux</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="d"> Bash</div>
+                    <div class="quiz-option"><input type="radio" id="q2" value="a"> Unix</div>
+                    <div class="quiz-option"><input type="radio" id="q2" value="b"> MacOS</div>
+                    <div class="quiz-option"><input type="radio" id="q2" value="c"> Linux</div>
+                    <div class="quiz-option"><input type="radio" id="q2" value="d"> Bash</div>
                     <button class="btn-primary" onclick="checkQuiz('q2', 'd')">Check Answer</button>
                     <div id="q2-feedback"></div>
                 </div>
@@ -442,10 +442,10 @@
                 <div class="quiz-title">Quiz 3: Shell vs Kernel</div>
                 <div class="quiz-content">
                     <p>What's the difference between Kernel and Shell?</p>
-                    <div class="quiz-option"><input type="radio" name="q3" value="a"> The kernel is a program; the shell manages hardware</div>
-                    <div class="quiz-option"><input type="radio" name="q3" value="b"> The shell is a program; the kernel manages hardware</div>
-                    <div class="quiz-option"><input type="radio" name="q3" value="c"> They are the same thing</div>
-                    <div class="quiz-option"><input type="radio" name="q3" value="d"> The kernel is only for Linux</div>
+                    <div class="quiz-option"><input type="radio" id="q3" value="a"> The kernel is a program; the shell manages hardware</div>
+                    <div class="quiz-option"><input type="radio" id="q3" value="b"> The shell is a program; the kernel manages hardware</div>
+                    <div class="quiz-option"><input type="radio" id="q3" value="c"> They are the same thing</div>
+                    <div class="quiz-option"><input type="radio" id="q3" value="d"> The kernel is only for Linux</div>
                     <button class="btn-primary" onclick="checkQuiz('q3', 'b')">Check Answer</button>
                     <div id="q3-feedback"></div>
                 </div>
@@ -455,10 +455,10 @@
                 <div class="quiz-title">Quiz 4: HPC and Why Bash?</div>
                 <div class="quiz-content">
                     <p>What does HPC stand for?</p>
-                    <div class="quiz-option"><input type="radio" name="q4" value="a"> High Power Computing</div>
-                    <div class="quiz-option"><input type="radio" name="q4" value="b"> High Performance Computing</div>
-                    <div class="quiz-option"><input type="radio" name="q4" value="c"> Home Personal Computer</div>
-                    <div class="quiz-option"><input type="radio" name="q4" value="d"> Hardware Performance Core</div>
+                    <div class="quiz-option"><input type="radio" id="q4" value="a"> High Power Computing</div>
+                    <div class="quiz-option"><input type="radio" id="q4" value="b"> High Performance Computing</div>
+                    <div class="quiz-option"><input type="radio" id="q4" value="c"> Home Personal Computer</div>
+                    <div class="quiz-option"><input type="radio" id="q4" value="d"> Hardware Performance Core</div>
                     <button class="btn-primary" onclick="checkQuiz('q4', 'b')">Check Answer</button>
                     <div id="q4-feedback"></div>
                 </div>
@@ -536,10 +536,10 @@
                 <div class="quiz-title">Quiz 5: Filesystem Navigation</div>
                 <div class="quiz-content">
                     <p>What does ~ represent?</p>
-                    <div class="quiz-option"><input type="radio" name="q5" value="a"> Current directory</div>
-                    <div class="quiz-option"><input type="radio" name="q5" value="b"> Parent directory</div>
-                    <div class="quiz-option"><input type="radio" name="q5" value="c"> Your home directory</div>
-                    <div class="quiz-option"><input type="radio" name="q5" value="d"> Root directory</div>
+                    <div class="quiz-option"><input type="radio" id="q5" value="a"> Current directory</div>
+                    <div class="quiz-option"><input type="radio" id="q5" value="b"> Parent directory</div>
+                    <div class="quiz-option"><input type="radio" id="q5" value="c"> Your home directory</div>
+                    <div class="quiz-option"><input type="radio" id="q5" value="d"> Root directory</div>
                     <button class="btn-primary" onclick="checkQuiz('q5', 'c')">Check Answer</button>
                     <div id="q5-feedback"></div>
                 </div>
@@ -581,10 +581,10 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 <div class="quiz-title">Quiz 6: cd ~ vs cd -</div>
                 <div class="quiz-content">
                     <p>What's the difference between cd ~ and cd -?</p>
-                    <div class="quiz-option"><input type="radio" name="q6" value="a"> cd ~ goes home; cd - goes to previous directory</div>
-                    <div class="quiz-option"><input type="radio" name="q6" value="b"> cd - goes home; cd ~ goes to previous directory</div>
-                    <div class="quiz-option"><input type="radio" name="q6" value="c"> They do the same thing</div>
-                    <div class="quiz-option"><input type="radio" name="q6" value="d"> cd ~ only works on Linux</div>
+                    <div class="quiz-option"><input type="radio" id="q6" value="a"> cd ~ goes home; cd - goes to previous directory</div>
+                    <div class="quiz-option"><input type="radio" id="q6" value="b"> cd - goes home; cd ~ goes to previous directory</div>
+                    <div class="quiz-option"><input type="radio" id="q6" value="c"> They do the same thing</div>
+                    <div class="quiz-option"><input type="radio" id="q6" value="d"> cd ~ only works on Linux</div>
                     <button class="btn-primary" onclick="checkQuiz('q6', 'a')">Check Answer</button>
                     <div id="q6-feedback"></div>
                 </div>
@@ -662,10 +662,10 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 <div class="quiz-title">Quiz 7: Which Command to Use?</div>
                 <div class="quiz-content">
                     <p>You have a HUGE file (100 GB). Which command is UNSAFE?</p>
-                    <div class="quiz-option"><input type="radio" name="q7" value="a"> head -n 100 huge.txt</div>
-                    <div class="quiz-option"><input type="radio" name="q7" value="b"> cat huge.txt</div>
-                    <div class="quiz-option"><input type="radio" name="q7" value="c"> less huge.txt</div>
-                    <div class="quiz-option"><input type="radio" name="q7" value="d"> tail -n 50 huge.txt</div>
+                    <div class="quiz-option"><input type="radio" id="q7" value="a"> head -n 100 huge.txt</div>
+                    <div class="quiz-option"><input type="radio" id="q7" value="b"> cat huge.txt</div>
+                    <div class="quiz-option"><input type="radio" id="q7" value="c"> less huge.txt</div>
+                    <div class="quiz-option"><input type="radio" id="q7" value="d"> tail -n 50 huge.txt</div>
                     <button class="btn-primary" onclick="checkQuiz('q7', 'b')">Check Answer</button>
                     <div id="q7-feedback"></div>
                 </div>
@@ -726,10 +726,10 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 <div class="quiz-title">Quiz 8: File Size & Safety</div>
                 <div class="quiz-content">
                     <p>What's the safest reason to use cat on huge files?</p>
-                    <div class="quiz-option"><input type="radio" name="q8" value="a"> To view everything</div>
-                    <div class="quiz-option"><input type="radio" name="q8" value="b"> To merge files efficiently</div>
-                    <div class="quiz-option"><input type="radio" name="q8" value="c"> When combined with pipes: cat file.txt | wc -l</div>
-                    <div class="quiz-option"><input type="radio" name="q8" value="d"> Both B and C</div>
+                    <div class="quiz-option"><input type="radio" id="q8" value="a"> To view everything</div>
+                    <div class="quiz-option"><input type="radio" id="q8" value="b"> To merge files efficiently</div>
+                    <div class="quiz-option"><input type="radio" id="q8" value="c"> When combined with pipes: cat file.txt | wc -l</div>
+                    <div class="quiz-option"><input type="radio" id="q8" value="d"> Both B and C</div>
                     <button class="btn-primary" onclick="checkQuiz('q8', 'd')">Check Answer</button>
                     <div id="q8-feedback"></div>
                 </div>
@@ -768,10 +768,10 @@ $ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
                 <div class="quiz-title">Quiz 9: Redirection > vs >></div>
                 <div class="quiz-content">
                     <p>What's the difference between > and >>?</p>
-                    <div class="quiz-option"><input type="radio" name="q9" value="a"> > overwrites; >> appends</div>
-                    <div class="quiz-option"><input type="radio" name="q9" value="b"> >> overwrites; > appends</div>
-                    <div class="quiz-option"><input type="radio" name="q9" value="c"> They do the same thing</div>
-                    <div class="quiz-option"><input type="radio" name="q9" value="d"> > is for files; >> is for directories</div>
+                    <div class="quiz-option"><input type="radio" id="q9" value="a"> > overwrites; >> appends</div>
+                    <div class="quiz-option"><input type="radio" id="q9" value="b"> >> overwrites; > appends</div>
+                    <div class="quiz-option"><input type="radio" id="q9" value="c"> They do the same thing</div>
+                    <div class="quiz-option"><input type="radio" id="q9" value="d"> > is for files; >> is for directories</div>
                     <button class="btn-primary" onclick="checkQuiz('q9', 'a')">Check Answer</button>
                     <div id="q9-feedback"></div>
                 </div>
@@ -811,10 +811,10 @@ $ file reads.fastq.gz    # Is it compressed?</pre>
                 <div class="quiz-title">Quiz 10: File Type Detection</div>
                 <div class="quiz-content">
                     <p>Why should you use 'file' command?</p>
-                    <div class="quiz-option"><input type="radio" name="q10" value="a"> Extensions are always reliable</div>
-                    <div class="quiz-option"><input type="radio" name="q10" value="b"> To check real file type (not extension)</div>
-                    <div class="quiz-option"><input type="radio" name="q10" value="c"> To delete files</div>
-                    <div class="quiz-option"><input type="radio" name="q10" value="d"> It's slower than checking extension</div>
+                    <div class="quiz-option"><input type="radio" id="q10" value="a"> Extensions are always reliable</div>
+                    <div class="quiz-option"><input type="radio" id="q10" value="b"> To check real file type (not extension)</div>
+                    <div class="quiz-option"><input type="radio" id="q10" value="c"> To delete files</div>
+                    <div class="quiz-option"><input type="radio" id="q10" value="d"> It's slower than checking extension</div>
                     <button class="btn-primary" onclick="checkQuiz('q10', 'b')">Check Answer</button>
                     <div id="q10-feedback"></div>
                 </div>
@@ -878,10 +878,10 @@ $ mkdir -p results/{raw,processed,plots}</pre>
                 <div class="quiz-title">Quiz 11: File Operations</div>
                 <div class="quiz-content">
                     <p>What does mkdir -p do?</p>
-                    <div class="quiz-option"><input type="radio" name="q11" value="a"> Removes directories</div>
-                    <div class="quiz-option"><input type="radio" name="q11" value="b"> Creates directories with parent directories if needed</div>
-                    <div class="quiz-option"><input type="radio" name="q11" value="c"> Prints directory contents</div>
-                    <div class="quiz-option"><input type="radio" name="q11" value="d"> Renames directories</div>
+                    <div class="quiz-option"><input type="radio" id="q11" value="a"> Removes directories</div>
+                    <div class="quiz-option"><input type="radio" id="q11" value="b"> Creates directories with parent directories if needed</div>
+                    <div class="quiz-option"><input type="radio" id="q11" value="c"> Prints directory contents</div>
+                    <div class="quiz-option"><input type="radio" id="q11" value="d"> Renames directories</div>
                     <button class="btn-primary" onclick="checkQuiz('q11', 'b')">Check Answer</button>
                     <div id="q11-feedback"></div>
                 </div>
@@ -946,10 +946,10 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 <div class="quiz-title">Quiz 12: Redirection and Pipes</div>
                 <div class="quiz-content">
                     <p>What does the pipe (|) do?</p>
-                    <div class="quiz-option"><input type="radio" name="q12" value="a"> Redirects to file</div>
-                    <div class="quiz-option"><input type="radio" name="q12" value="b"> Takes output of left command as input to right command</div>
-                    <div class="quiz-option"><input type="radio" name="q12" value="c"> Deletes files</div>
-                    <div class="quiz-option"><input type="radio" name="q12" value="d"> Appends to file</div>
+                    <div class="quiz-option"><input type="radio" id="q12" value="a"> Redirects to file</div>
+                    <div class="quiz-option"><input type="radio" id="q12" value="b"> Takes output of left command as input to right command</div>
+                    <div class="quiz-option"><input type="radio" id="q12" value="c"> Deletes files</div>
+                    <div class="quiz-option"><input type="radio" id="q12" value="d"> Appends to file</div>
                     <button class="btn-primary" onclick="checkQuiz('q12', 'b')">Check Answer</button>
                     <div id="q12-feedback"></div>
                 </div>
@@ -1043,10 +1043,10 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="quiz-title">Quiz 13: grep Mastery</div>
                 <div class="quiz-content">
                     <p>What does grep -v do?</p>
-                    <div class="quiz-option"><input type="radio" name="q13" value="a"> Shows only matching lines</div>
-                    <div class="quiz-option"><input type="radio" name="q13" value="b"> Shows all lines EXCEPT matching ones (inverts search)</div>
-                    <div class="quiz-option"><input type="radio" name="q13" value="c"> Validates grep syntax</div>
-                    <div class="quiz-option"><input type="radio" name="q13" value="d"> Displays file version</div>
+                    <div class="quiz-option"><input type="radio" id="q13" value="a"> Shows only matching lines</div>
+                    <div class="quiz-option"><input type="radio" id="q13" value="b"> Shows all lines EXCEPT matching ones (inverts search)</div>
+                    <div class="quiz-option"><input type="radio" id="q13" value="c"> Validates grep syntax</div>
+                    <div class="quiz-option"><input type="radio" id="q13" value="d"> Displays file version</div>
                     <button class="btn-primary" onclick="checkQuiz('q13', 'b')">Check Answer</button>
                     <div id="q13-feedback"></div>
                 </div>
@@ -1093,10 +1093,10 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="quiz-title">Quiz 14: File Navigation</div>
                 <div class="quiz-content">
                     <p>Inside less, how do you search for a pattern?</p>
-                    <div class="quiz-option"><input type="radio" name="q14" value="a"> Type the pattern directly</div>
-                    <div class="quiz-option"><input type="radio" name="q14" value="b"> Press / then type the pattern</div>
-                    <div class="quiz-option"><input type="radio" name="q14" value="c"> Press ? then type the pattern</div>
-                    <div class="quiz-option"><input type="radio" name="q14" value="d"> Both B and C work</div>
+                    <div class="quiz-option"><input type="radio" id="q14" value="a"> Type the pattern directly</div>
+                    <div class="quiz-option"><input type="radio" id="q14" value="b"> Press / then type the pattern</div>
+                    <div class="quiz-option"><input type="radio" id="q14" value="c"> Press ? then type the pattern</div>
+                    <div class="quiz-option"><input type="radio" id="q14" value="d"> Both B and C work</div>
                     <button class="btn-primary" onclick="checkQuiz('q14', 'd')">Check Answer</button>
                     <div id="q14-feedback"></div>
                 </div>
