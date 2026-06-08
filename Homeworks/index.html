@@ -37,10 +37,18 @@
             background: rgba(15, 23, 42, 0.95);
             border-bottom: 2px solid var(--accent);
             padding: 2rem 1rem;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        header.hide {
+            transform: translateY(-100%);
         }
 
         .header-content {
@@ -65,7 +73,7 @@
 
         main {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 140px auto 0 auto;
             padding: 2rem 1rem;
         }
 
@@ -280,12 +288,15 @@
 
         .quiz-option {
             background: rgba(30, 41, 59, 0.5);
-            padding: 0.75rem;
-            margin: 0.5rem 0;
+            padding: 1rem;
+            margin: 0.75rem 0;
             border-radius: 6px;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .quiz-option:hover {
@@ -294,8 +305,12 @@
         }
 
         .quiz-option input {
-            margin-right: 0.5rem;
+            margin-right: 0;
             cursor: pointer;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent);
+            flex-shrink: 0;
         }
 
         .hint-box {
@@ -369,13 +384,23 @@
     <header>
         <div class="header-content">
             <h1>🐚 BASH Intro</h1>
-            <p class="subtitle">Interactive Homework - Lecture 1</p>
+            <p class="subtitle">Lecture 1</p>
         </div>
     </header>
 
     <main>
         <div class="progress-bar">
             <div class="progress-fill" id="progress"></div>
+        </div>
+
+        <!-- Study Reminder Section -->
+        <div class="section">
+            <h2>Before You Start</h2>
+            <div class="content-box">
+                <h3>Study the Lecture Slides First!</h3>
+                <p><strong>⚠️ Important:</strong> This homework is meant to test what you learned from the lecture slides, NOT to teach you.</p>
+                <p style="margin-top: 1.5rem; color: #fcd34d;"><strong>Then come back here to test your knowledge!</strong></p>
+            </div>
         </div>
 
         <!-- Section 1: Concepts Quiz -->
@@ -403,11 +428,11 @@
             <div class="quiz-section">
                 <div class="quiz-title">Quiz 2: Operating Systems</div>
                 <div class="quiz-content">
-                    <p>Which of these is an operating system?</p>
-                    <div class="quiz-option"><input type="radio" name="q2" value="a"> Bash</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="b"> Linux</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="c"> Windows</div>
-                    <div class="quiz-option"><input type="radio" name="q2" value="d"> Both B and C are correct</div>
+                    <p>Which of these is not an operating system?</p>
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> Unix</div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> MacOS</div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> Linux</div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> Bash</div>
                     <button class="btn-primary" onclick="checkQuiz('q2', 'd')">Check Answer</button>
                     <div id="q2-feedback"></div>
                 </div>
@@ -461,11 +486,11 @@
                 <div class="challenge-title">Find Your Current Location</div>
                 <p>Write a command to print your current working directory.</p>
                 <div class="code-editor">
-                    <textarea id="challenge1" placeholder="Type your command here... hint: pwd"></textarea>
+                    <textarea id="challenge1" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(1)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint1')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint1')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint1" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>pwd</code> (Print Working Directory)</p>
@@ -482,7 +507,7 @@
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(2)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint2')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint2')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint2" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>ls</code> to list files</p>
@@ -499,7 +524,7 @@
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(3)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint3')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint3')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint3" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>ls -l</code> (long format) or <code>ls -lh</code> (human-readable sizes)</p>
@@ -544,7 +569,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(4)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint4')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint4')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint4" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cd ~</code> to go home</p>
@@ -591,7 +616,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(5)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint5')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint5')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint5" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>head -n 10 data.txt</code></p>
@@ -608,7 +633,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(6)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint6')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint6')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint6" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>tail -n 5 results.txt</code></p>
@@ -625,7 +650,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(7)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint7')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint7')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint7" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>tail -n +2 filename</code> (this means "from line 2 onwards")</p>
@@ -672,7 +697,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(8)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint8')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint8')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint8" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>wc -l reads.fastq</code> (wc = word count, -l = lines)</p>
@@ -689,7 +714,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(9)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint9')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint9')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint9" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>wc -l reads.fastq | awk '{print $1/4}'</code> or similar</p>
@@ -731,7 +756,7 @@ $ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(10)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint10')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint10')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint10" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cat sample1.txt sample2.txt > combined.txt</code></p>
@@ -774,7 +799,7 @@ $ file reads.fastq.gz    # Is it compressed?</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(11)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint11')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint11')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint11" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>file mystery.data</code></p>
@@ -824,7 +849,7 @@ $ mkdir -p results/{raw,processed,plots}</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(12)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint12')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint12')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint12" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>mkdir -p project/data/raw</code></p>
@@ -841,7 +866,7 @@ $ mkdir -p results/{raw,processed,plots}</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(13)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint13')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint13')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint13" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>touch read{1..20}.fastq</code></p>
@@ -892,7 +917,7 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(14)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint14')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint14')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint14" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cat new_data.txt >> existing_data.txt</code></p>
@@ -909,7 +934,7 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(15)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint15')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint15')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint15" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cat file.txt | wc -l</code></p>
@@ -955,7 +980,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(16)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint16')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint16')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint16" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>grep "error" log.txt</code></p>
@@ -972,7 +997,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(17)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint17')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint17')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint17" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>grep -i "error" log.txt</code></p>
@@ -989,7 +1014,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(18)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint18')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint18')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint18" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>grep -c "READ" analysis.txt</code></p>
@@ -1006,7 +1031,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(19)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint19')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint19')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint19" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>grep -v "^@" reads.fastq</code> (-v = invert match, ^ = start of line)</p>
@@ -1056,7 +1081,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(20)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint20')">Show Hint</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint20')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint20" style="display: none;">
                     <p><strong>Hint:</strong> Press <code>/</code> then type the pattern: <code>/GATC</code> then Enter</p>
@@ -1096,11 +1121,28 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
     </main>
 
     <footer>
-        <p>BASH Intro - Interactive Homework | By Yaren | 2024</p>
+        <p>BASH Intro - Interactive Homework | Created by an organic intelligent lifeform </p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Check your lecture notes or ask in class!</p>
     </footer>
 
     <script>
+        let lastScrollY = 0;
+
+        // Hide/show header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                header.classList.add('hide');
+            } else {
+                // Scrolling up
+                header.classList.remove('hide');
+            }
+            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+        });
+
         const answers = {
             1: ['pwd'],
             2: ['ls', 'ls -l', 'ls -lh'],
