@@ -1,0 +1,289 @@
+🐚 BASH Intro
+Homework - Lecture 1
+
+📚 Fundamental Concepts
+Test Your Knowledge
+Before we start coding, let's make sure you understand the basic terminology!
+Quiz 1: Hardware vs Software
+
+Quiz 2: Operating Systems
+
+Quiz 3: Shell vs Kernel
+
+Quiz 4: HPC and Why Bash?
+
+📁 Filesystem Basics & Navigation
+Understanding Paths and Directories
+The filesystem is like a filing cabinet. Let's explore it!
+Key concepts:
+	•	/ = Root directory (everything lives under it)
+	•	~ = Your home directory
+	•	. = Current directory
+	•	.. = Parent directory
+Challenge 1: Where Are You?
+Find Your Current Location
+Write a command to print your current working directory.
+
+Check Answer
+Show Hint
+
+Challenge 2: List Files and Folders
+What's in Your Directory?
+Write a command to list all files and folders in your current directory.
+
+Check Answer
+Show Hint
+
+Challenge 3: Long Format Listing
+Show File Details (Size, Permissions, Date)
+Write a command to list files with details like permissions, size, date modified, and owner.
+
+Check Answer
+Show Hint
+
+Quiz 5: Filesystem Navigation
+
+🚀 Navigation with cd
+The Power of cd - and cd ~
+cd ~ takes you back to your home directory. This is useful when you're lost in deep directories.
+cd - takes you back to the PREVIOUS directory you were in. Super useful for switching between two places!
+$ cd /very/deep/path/to/data
+$ cd /another/deep/path/to/results
+$ cd -          # Jump back to /very/deep/path/to/data
+$ cd -          # Jump back to /another/deep/path/to/results (alternates)
+Challenge 4: Navigate the Filesystem
+Go to Your Home Directory
+Write the command to navigate to your home directory using a shortcut.
+
+Check Answer
+Show Hint
+
+Quiz 6: cd ~ vs cd -
+
+📖 Reading Files
+Different Ways to Read Files
+Depending on what you need, use different commands:
+	•	head -n 10 file.txt → First 10 lines
+	•	tail -n 5 file.txt → Last 5 lines
+	•	tail -n +2 file.txt → All lines EXCEPT the first
+	•	cat file.txt → All lines (use with caution on huge files!)
+	•	less file.txt → Page through file (press q to quit)
+Challenge 5: Read First Lines
+Show First 10 Lines of a File
+Write a command to display the first 10 lines of a file named data.txt.
+
+Check Answer
+Show Hint
+
+Challenge 6: Read Last Lines
+Show Last 5 Lines of a File
+Write a command to display the last 5 lines of a file named results.txt.
+
+Check Answer
+Show Hint
+
+Challenge 7: Skip First Line
+Skip the Header
+Write a command to show all lines of a file EXCEPT the first one (useful for skipping headers).
+
+Check Answer
+Show Hint
+
+Quiz 7: Which Command to Use?
+
+🧬 Counting Reads in FASTQ Files
+Why This Matters in Bioinformatics
+FASTQ files store sequencing reads. Each read takes exactly 4 lines:
+	•	Line 1: Sequence ID (starts with @)
+	•	Line 2: DNA sequence
+	•	Line 3: Plus sign (+)
+	•	Line 4: Quality scores
+Formula: Number of reads = Total lines ÷ 4
+Challenge 8: Count Lines in a File
+How Many Reads?
+Write a command to count the total number of lines in a FASTQ file named reads.fastq.
+
+Check Answer
+Show Hint
+
+Challenge 9: Calculate Number of Reads
+From Lines to Reads
+Write a command to count the number of reads in a FASTQ file (remember: 4 lines per read).
+
+Check Answer
+Show Hint
+
+Quiz 8: File Size & Safety
+
+🔗 Merging and Redirecting Files
+Combining Files with cat
+cat (concatenate) reads one or more files and prints them. Very useful for combining data!
+$ cat file1.txt file2.txt         # Print both to screen
+$ cat file1.txt file2.txt > merged.txt  # Merge into new file
+Challenge 10: Merge Files
+Combine Multiple Files
+Write a command to merge sample1.txt and sample2.txt into a new file called combined.txt.
+
+Check Answer
+Show Hint
+
+Quiz 9: Redirection > vs >>
+
+🔍 Identifying File Types
+Why Knowing File Type Matters
+Don't trust file extensions! Use file command to check what's really inside.
+$ file data.txt          # Is it really a text file?
+$ file image.png         # Check image format
+$ file reads.fastq.gz    # Is it compressed?
+This matters because:
+	•	A file might have wrong extension
+	•	Compressed files need special tools (gunzip, bunzip2, etc.)
+	•	Binary files can't be viewed with cat
+Challenge 11: Identify File Type
+What Type of File Is This?
+Write a command to check what type of file mystery.data actually is.
+
+Check Answer
+Show Hint
+
+Quiz 10: File Type Detection
+
+✨ Creating Files and Directories
+Make Directories (with parents)
+$ mkdir project                  # Single directory
+$ mkdir -p project/data/raw      # With parent directories (-p flag)
+Create Empty Files
+$ touch file.txt                 # Create empty file
+$ touch {1..5}.txt              # Create file1.txt, file2.txt... file5.txt (brace expansion!)
+Brace Expansion for Bulk Creation
+Create multiple files at once:
+$ touch sample_{A,B,C}.fastq    # Creates sample_A.fastq, sample_B.fastq, sample_C.fastq
+$ mkdir -p results/{raw,processed,plots}
+Challenge 12: Create Directories
+Build a Project Structure
+Write a command to create a directory structure: project/data/raw (with parent directories).
+
+Check Answer
+Show Hint
+
+Challenge 13: Create Multiple Files with Brace Expansion
+Bulk Create Files
+Write a command to create 20 files at once named read1.fastq, read2.fastq, ..., read20.fastq.
+
+Check Answer
+Show Hint
+
+Quiz 11: File Operations
+
+⚠️ Modifying Files & Directories
+Common Operations (Be Careful!)
+$ cp file.txt file_copy.txt              # Copy file
+$ cp -r directory/ directory_copy/      # Copy directory recursively
+$ mv file.txt newname.txt               # Rename or move file
+$ rm file.txt                           # Delete file (NO UNDO!)
+$ rm -r directory/                      # Delete directory recursively (NO UNDO!)
+Challenge 14: Copy a File
+Make a Backup
+Write a command to copy data.txt to data_backup.txt.
+
+Check Answer
+Show Hint
+
+Challenge 15: Rename a File
+Rename Bad Name to Good Name
+Write a command to rename old_name.txt to new_name.txt.
+
+Check Answer
+Show Hint
+
+🔀 Piping and Redirection
+The Difference: > vs >>
+	•	> = Overwrite the file (destroys old content!)
+	•	>> = Append to the file (keeps old content)
+$ ls > files.txt              # Creates OR overwrites files.txt
+$ ls >> files.txt             # Appends to files.txt
+$ cat data.txt | wc -l        # Pipe: send output as input to next command
+The Pipe (|)
+Chain commands together! Output of left command → input of right command:
+$ cat huge_file.txt | wc -l    # Count lines (efficient for huge files!)
+$ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5
+Challenge 16: Append to File
+Add More Data Without Destroying Old Data
+Write a command to append the contents of new_data.txt to existing_data.txt.
+
+Check Answer
+Show Hint
+
+Challenge 17: Use Pipes
+Chain Commands Together
+Write a command to count how many lines are in a file using a pipe.
+
+Check Answer
+Show Hint
+
+Quiz 12: Redirection and Pipes
+
+🔎 Searching with grep
+The grep Command
+grep searches for patterns in text. Essential for bioinformatics!
+$ grep "sequence_id" file.txt          # Find lines containing "sequence_id"
+$ grep -i "ERROR" log.txt              # Case-insensitive search (-i)
+$ grep -c "found" file.txt             # Count matching lines (-c)
+$ grep "@" reads.fastq | head          # Show first 10 sequence IDs from FASTQ
+$ grep -v "^#" data.txt                # Show all lines EXCEPT comments (-v)
+$ grep "pattern" file.txt | wc -l      # Count matches
+Challenge 18: Basic grep Search
+Find Lines with Specific Pattern
+Write a command to search for all lines containing "error" in a file named log.txt.
+
+Check Answer
+Show Hint
+
+Challenge 19: Case-Insensitive Search
+Search Without Worrying About Capitals
+Write a command to search for "ERROR", "Error", or "error" (case-insensitive).
+
+Check Answer
+Show Hint
+
+Challenge 20: Count Matches
+How Many Times Does This Appear?
+Write a command to count how many lines contain "READ" in a file named analysis.txt.
+
+Check Answer
+Show Hint
+
+Challenge 21: Invert Search
+Find Lines WITHOUT a Pattern
+Write a command to show all lines in a FASTQ file that do NOT start with "@" (exclude headers).
+
+Check Answer
+Show Hint
+
+Quiz 13: grep Mastery
+
+📄 Paging Through Files with less
+Why Use less?
+For huge files, cat will overflow your terminal. Use less to page through:
+$ less huge_file.fastq
+   Inside less:
+   Space or Page Down → next page
+   b or Page Up       → previous page
+   / pattern          → search for pattern
+   n                  → next match
+   N                  → previous match
+   G                  → end of file
+   g                  → beginning of file
+   q                  → quit
+Challenge 22: Search in less
+Find Pattern Inside less
+Describe what keystroke(s) you would use to search for "GATC" while viewing a file in less.
+
+Check Answer
+Show Hint
+
+Quiz 14: File Navigation
+
+🎓 Congratulations!
+You've completed the BASH Intro Lecture 1 interactive homework!
+Questions? Check your lecture notes or ask in class!
