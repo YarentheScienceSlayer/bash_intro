@@ -395,11 +395,11 @@
 </head>
 <body>
     <header id="header">
-    <div class="header-content">
-        <h1>🐚 BASH Intro</h1>
-        <p class="subtitle">Lecture 1 — <a href="../" style="color: var(--accent); text-decoration: none;">← Back to Homepage</a></p>
-    </div>
-</header>
+        <div class="header-content">
+            <h1>🐚 BASH Intro</h1>
+            <p class="subtitle">Lecture 1 — <a href="../" style="color: var(--accent); text-decoration: none;">← Back to Homepage</a></p>
+        </div>
+    </header>
 
     <main>
         <div class="progress-bar">
@@ -670,7 +670,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
             <h3>Challenge 7: Skip First Line</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Skip the Header</div>
-                <p>Write a command to show all lines of a file EXCEPT the first one (useful for skipping headers).</p>
+                <p>Write a command to show all lines of the file <code>file.txt</code> EXCEPT the first one (useful for skipping headers).</p>
                 <div class="code-editor">
                     <textarea id="challenge7" placeholder="Type your command here..."></textarea>
                 </div>
@@ -679,7 +679,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                     <button class="btn-secondary" onclick="toggleHint('hint7')">Show Answer</button>
                 </div>
                 <div class="hint-box" id="hint7" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>tail -n +2 filename</code> (this means "from line 2 onwards")</p>
+                    <p><strong>Hint:</strong> Use <code>tail -n +2 file.txt</code> (this means "from line 2 onwards")</p>
                 </div>
                 <div id="feedback7"></div>
             </div>
@@ -731,7 +731,6 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 <div id="feedback8"></div>
             </div>
 
-
             <div class="quiz-section">
                 <div class="quiz-title">Quiz 9: File Size & Safety</div>
                 <div class="quiz-content">
@@ -757,7 +756,7 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
 $ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
             </div>
 
-            <h3>Challenge 10: Merge Files</h3>
+            <h3>Challenge 9: Merge Files</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Combine Multiple Files</div>
                 <p>Write a command to merge <code>sample1.txt</code> and <code>sample2.txt</code> into a new file called <code>combined.txt</code>.</p>
@@ -765,13 +764,13 @@ $ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
                     <textarea id="challenge10" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(10)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint10')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(9)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint9')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint10" style="display: none;">
+                <div class="hint-box" id="hint9" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cat sample1.txt sample2.txt > combined.txt</code></p>
                 </div>
-                <div id="feedback10"></div>
+                <div id="feedback9"></div>
             </div>
 
             <div class="quiz-section">
@@ -800,7 +799,7 @@ $ file image.png         # Check image format
 $ file reads.fastq.gz    # Is it compressed?</pre>
             </div>
 
-            <h3>Challenge 11: Identify File Type</h3>
+            <h3>Challenge 10: Identify File Type</h3>
             <div class="challenge-box">
                 <div class="challenge-title">What Type of File Is This?</div>
                 <p>Write a command to check what type of file <code>mystery.data</code> actually is.</p>
@@ -808,13 +807,13 @@ $ file reads.fastq.gz    # Is it compressed?</pre>
                     <textarea id="challenge11" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(11)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint11')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(10)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint10')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint11" style="display: none;">
+                <div class="hint-box" id="hint10" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>file mystery.data</code></p>
                 </div>
-                <div id="feedback11"></div>
+                <div id="feedback10"></div>
             </div>
 
             <div class="quiz-section">
@@ -850,7 +849,7 @@ $ touch {1..5}.txt              # Create file1.txt, file2.txt... file5.txt (brac
 $ mkdir -p results/{raw,processed,plots}</pre>
             </div>
 
-            <h3>Challenge 12: Create Directories</h3>
+            <h3>Challenge 11: Create Directories</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Build a Project Structure</div>
                 <p>Write a command to create a directory structure: <code>project/data/raw</code> (with parent directories).</p>
@@ -858,16 +857,16 @@ $ mkdir -p results/{raw,processed,plots}</pre>
                     <textarea id="challenge12" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(12)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint12')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(11)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint11')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint12" style="display: none;">
+                <div class="hint-box" id="hint11" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>mkdir -p project/data/raw</code></p>
                 </div>
-                <div id="feedback12"></div>
+                <div id="feedback11"></div>
             </div>
 
-            <h3>Challenge 13: Create Multiple Files with Brace Expansion</h3>
+            <h3>Challenge 12: Create Multiple Files with Brace Expansion</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Bulk Create Files</div>
                 <p>Write a command to create 20 files at once named <code>read1.fastq, read2.fastq, ..., read20.fastq</code>.</p>
@@ -875,13 +874,13 @@ $ mkdir -p results/{raw,processed,plots}</pre>
                     <textarea id="challenge13" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(13)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint13')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(12)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint12')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint13" style="display: none;">
+                <div class="hint-box" id="hint12" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>touch read{1..20}.fastq</code></p>
                 </div>
-                <div id="feedback13"></div>
+                <div id="feedback12"></div>
             </div>
 
             <div class="quiz-section">
@@ -918,7 +917,7 @@ $ cat data.txt | wc -l        # Pipe: send output as input to next command</pre>
 $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre>
             </div>
 
-            <h3>Challenge 14: Append to File</h3>
+            <h3>Challenge 13: Append to File</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Add More Data Without Destroying Old Data</div>
                 <p>Write a command to append the contents of <code>new_data.txt</code> to <code>existing_data.txt</code>.</p>
@@ -926,13 +925,13 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                     <textarea id="challenge14" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(14)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint14')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(13)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint13')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint14" style="display: none;">
+                <div class="hint-box" id="hint13" style="display: none;">
                     <p><strong>Hint:</strong> Use <code>cat new_data.txt >> existing_data.txt</code></p>
                 </div>
-                <div id="feedback14"></div>
+                <div id="feedback13"></div>
             </div>
 
             <div class="quiz-section">
@@ -974,21 +973,21 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 </div>
             </div>
 
-            <h3>Challenge 21: Remove Directory</h3>
+            <h3>Challenge 14: Remove Directory</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Delete a Directory and Its Contents</div>
                 <p>Write the command to remove the Raw_data directory including all its contents.</p>
                 <div class="code-editor">
-                    <textarea id="challenge21" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge15" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(21)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint21')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(14)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint14')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint21" style="display: none;">
+                <div class="hint-box" id="hint14" style="display: none;">
                     <p><strong>Answer:</strong> <code>rm -r Raw_data</code></p>
                 </div>
-                <div id="feedback21"></div>
+                <div id="feedback14"></div>
             </div>
 
             <h3>Challenge 15: Use Pipes</h3>
@@ -996,7 +995,7 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 <div class="challenge-title">Chain Commands Together</div>
                 <p>Write a command to count how many lines are in a file using a pipe.</p>
                 <div class="code-editor">
-                    <textarea id="challenge15" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge16" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(15)">Check Answer</button>
@@ -1011,12 +1010,25 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
             <div class="quiz-section">
                 <div class="quiz-title">Quiz 16: cat with grep and Pipes</div>
                 <div class="quiz-content">
-                    <p><strong>How can cat be used with piping to find the word "Homo sapiens" in species.txt?</strong></p>
-                    <div class="quiz-option"><input type="radio" id="q16a" name="q16" value="a"><label for="q16a">cat species.txt | grep "Homo sapiens"</label></div>
-                    <div class="quiz-option"><input type="radio" id="q16b" name="q16" value="b"><label for="q16b">cat , >></label></div>
-                    <div class="quiz-option"><input type="radio" id="q16c" name="q16" value="c"><label for="q16c">cat , ></label></div>
-                    <div class="quiz-option"><input type="radio" id="q16d" name="q16" value="d"><label for="q16d">cat , /</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q16', 'a')">Check Answer</button>
+                    <p><strong>Complete the command to find "Homo sapiens" in species.txt using a pipe. Click the correct options to fill in the blanks:</strong></p>
+                    <div style="background: var(--bg-code); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0; font-family: 'JetBrains Mono', monospace; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span id="q16-blank1" onclick="clearBlank16(1)" style="display:inline-block; min-width:60px; padding: 0.3rem 0.8rem; background: rgba(6,182,212,0.1); border: 2px dashed var(--accent); border-radius: 4px; text-align:center; color: var(--accent); cursor:pointer;">___</span>
+                        <span style="color: var(--text-primary);">species.txt</span>
+                        <span id="q16-blank2" onclick="clearBlank16(2)" style="display:inline-block; min-width:40px; padding: 0.3rem 0.8rem; background: rgba(6,182,212,0.1); border: 2px dashed var(--accent); border-radius: 4px; text-align:center; color: var(--accent); cursor:pointer;">___</span>
+                        <span style="color: var(--text-primary);">grep "Homo sapiens"</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Click an option to fill the next blank (click a filled blank to clear it):</p>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0.75rem 0;">
+                        <button class="btn-secondary" onclick="fillBlank16('cat')" style="font-family: 'JetBrains Mono', monospace;">cat</button>
+                        <button class="btn-secondary" onclick="fillBlank16('|')" style="font-family: 'JetBrains Mono', monospace;">|</button>
+                        <button class="btn-secondary" onclick="fillBlank16('>>')" style="font-family: 'JetBrains Mono', monospace;">>></button>
+                        <button class="btn-secondary" onclick="fillBlank16('>')" style="font-family: 'JetBrains Mono', monospace;">></button>
+                        <button class="btn-secondary" onclick="fillBlank16('/')" style="font-family: 'JetBrains Mono', monospace;">/</button>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-primary" onclick="checkQuiz16()">Check Answer</button>
+                        <button class="btn-secondary" onclick="resetQuiz16()">Reset</button>
+                    </div>
                     <div id="q16-feedback"></div>
                 </div>
             </div>
@@ -1055,7 +1067,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="challenge-title">Find Lines with Specific Pattern</div>
                 <p>Write a command to search for all lines containing "error" in a file named <code>log.txt</code>.</p>
                 <div class="code-editor">
-                    <textarea id="challenge16" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge17" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(16)">Check Answer</button>
@@ -1072,7 +1084,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="challenge-title">Search Without Worrying About Capitals</div>
                 <p>Write a command to search for "ERROR", "Error", or "error" (case-insensitive).</p>
                 <div class="code-editor">
-                    <textarea id="challenge17" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge18" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(17)">Check Answer</button>
@@ -1089,7 +1101,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="challenge-title">How Many Times Does This Appear?</div>
                 <p>Write a command to count how many lines contain "READ" in a file named <code>analysis.txt</code>.</p>
                 <div class="code-editor">
-                    <textarea id="challenge18" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge19" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(18)">Check Answer</button>
@@ -1106,7 +1118,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div class="challenge-title">Find Lines WITHOUT a Pattern</div>
                 <p>Write a command to show all lines in a FASTQ file that do NOT start with "@" (exclude headers).</p>
                 <div class="code-editor">
-                    <textarea id="challenge19" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge20" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
                     <button class="btn-primary" onclick="checkChallenge(19)">Check Answer</button>
@@ -1131,21 +1143,21 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
             </div>
 
-            <h3>Challenge 22: Extract Previous Line with grep</h3>
+            <h3>Challenge 20: Extract sequence Line with grep</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Show Context Before Match</div>
-                <p>Use the correct flags to extract the previous line while using grep for searching "ATGC" pattern in reads.fastq:</p>
+                <p>Use the correct flags to extract all 4 lines of a sequence while using grep for searching "ATGC" pattern in reads.fastq:</p>
                 <div class="code-editor">
-                    <textarea id="challenge22" placeholder="Type your command here..."></textarea>
+                    <textarea id="challenge21" placeholder="Type your command here..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(22)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint22')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(20)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint20')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint22" style="display: none;">
-                    <p><strong>Answer:</strong> <code>grep -B1 "ATGC" reads.fastq</code></p>
+                <div class="hint-box" id="hint20" style="display: none;">
+                    <p><strong>Answer:</strong> <code>grep -B1 -A2 "ATGC" reads.fastq</code></p>
                 </div>
-                <div id="feedback22"></div>
+                <div id="feedback20"></div>
             </div>
 
             <div class="quiz-section">
@@ -1182,21 +1194,21 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
    q                  → quit</pre>
             </div>
 
-            <h3>Challenge 20: Search in less</h3>
+            <h3>Challenge 21: Search in less</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Find Pattern Inside less</div>
                 <p>Describe what keystroke(s) you would use to search for "GATC" while viewing a file in <code>less</code>.</p>
                 <div class="code-editor">
-                    <textarea id="challenge20" placeholder="Type your answer..."></textarea>
+                    <textarea id="challenge22" placeholder="Type your answer..."></textarea>
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(20)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint20')">Show Answer</button>
+                    <button class="btn-primary" onclick="checkChallenge(21)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint21')">Show Answer</button>
                 </div>
-                <div class="hint-box" id="hint20" style="display: none;">
+                <div class="hint-box" id="hint21" style="display: none;">
                     <p><strong>Hint:</strong> Press <code>/</code> then type the pattern: <code>/GATC</code> then Enter</p>
                 </div>
-                <div id="feedback20"></div>
+                <div id="feedback21"></div>
             </div>
 
             <div class="quiz-section">
@@ -1221,13 +1233,61 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
     </main>
 
     <footer>
-        <a href="../" style="display: inline-block; margin-bottom: 1.5rem; padding: 0.75rem 2rem; background: var(--accent); color: var(--primary); border-radius: 6px; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600;">← Back to Homepage</a>
+        <a href="../" style="display: inline-block; margin-bottom: 1.5rem; padding: 0.75rem 2rem; background: var(--accent); color: var(--primary); border-radius: 6px; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#00d4d4'" onmouseout="this.style.background='var(--accent)'">← Back to Homepage</a>
         <p>BASH Intro - Interactive Homework | ⚡ Mischief managed by Yaren </p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Check your lecture notes or ask in class!</p>
     </footer>
     
 
     <script>
+
+        // Quiz 16 fill-in-the-blanks
+        let q16_answers = ['', ''];
+        let q16_next = 0;
+
+        function fillBlank16(value) {
+            if (q16_next < 2) {
+                q16_answers[q16_next] = value;
+                document.getElementById('q16-blank' + (q16_next + 1)).textContent = value;
+                document.getElementById('q16-blank' + (q16_next + 1)).style.borderStyle = 'solid';
+                q16_next++;
+            }
+        }
+
+        function clearBlank16(num) {
+            const blankEl = document.getElementById('q16-blank' + num);
+            if (blankEl.textContent !== '___') {
+                q16_answers[num - 1] = '';
+                blankEl.textContent = '___';
+                blankEl.style.borderStyle = 'dashed';
+                q16_next = q16_answers.filter(a => a !== '').length;
+            }
+        }
+
+        function resetQuiz16() {
+            q16_answers = ['', ''];
+            q16_next = 0;
+            document.getElementById('q16-blank1').textContent = '___';
+            document.getElementById('q16-blank2').textContent = '___';
+            document.getElementById('q16-blank1').style.borderStyle = 'dashed';
+            document.getElementById('q16-blank2').style.borderStyle = 'dashed';
+            document.getElementById('q16-feedback').innerHTML = '';
+        }
+
+        function checkQuiz16() {
+            const fb = document.getElementById('q16-feedback');
+            if (q16_answers[0] === '' || q16_answers[1] === '') {
+                fb.innerHTML = '<div class="feedback error">❌ Please fill in both blanks first!</div>';
+                return;
+            }
+            if (q16_answers[0] === 'cat' && q16_answers[1] === '|') {
+                fb.innerHTML = '<div class="feedback success">✅ Correct! <code>cat species.txt | grep "Homo sapiens"</code></div>';
+                updateProgress();
+            } else {
+                fb.innerHTML = '<div class="feedback error">❌ Not quite. Which command reads a file? Which symbol connects commands?</div>';
+            }
+        }
+
         let lastScrollY = 0;
 
         // Hide/show header on scroll
@@ -1249,25 +1309,24 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
             1: ['pwd'],
             2: ['ls', 'ls -l', 'ls -lh'],
             3: ['ls -l', 'ls -lh'],
-            4: ['cd ~', 'cd~'],
-            5: ['head data.txt', 'head -n10', 'head -10', 'head -n 10'],
-            6: ['tail -n 5', 'tail -n5', 'tail -5'],
-            7: ['tail -n +2', 'tail -n+2'],
-            8: ['wc -l'],
-            9: ['wc -l reads.fastq | awk', 'divide by 4', '/4'],
-            10: ['cat sample1.txt sample2.txt > combined.txt'],
-            11: ['file mystery.data'],
-            12: ['mkdir -p project/data/raw'],
-            13: ['touch read{1..20}.fastq'],
-            14: ['cat new_data.txt >> existing_data.txt'],
+            4: ['cd ~'],
+            5: ['head data.txt', 'head -n10 data.txt', 'head -10 data.txt', 'head -n 10 data.txt'],
+            6: ['tail -n 5 results.txt', 'tail -n5 results.txt', 'tail -5 results.txt'],
+            7: ['tail -n +2 file.txt', 'tail -n+2 file.txt'],
+            8: ['wc -l','wc'],
+            19: ['cat sample1.txt sample2.txt > combined.txt', 'cat sample1.txt sample2.txt >> combined.txt'],
+            10: ['file mystery.data'],
+            11: ['mkdir -p project/data/raw'],
+            12: ['touch read{1..20}.fastq'],
+            13: ['cat new_data.txt >> existing_data.txt'],
+            14: ['rm -r Raw_data'],
             15: ['cat file.txt | grep', 'cat file.txt | wc'],
             16: ['grep error', 'grep "error"', "grep 'error'"],
             17: ['grep -i error', 'grep -i "error"', "grep -i 'error'"],
-            18: ['grep -c "READ" analysis.txt'],
+            18: ['grep -c "READ" analysis.txt', 'grep -c READ analysis.txt'],
             19: ['grep -v'],
-            20: ['/GATC', '/ GATC'],
-            21: ['rm -r Raw_data'],
-            22: ['grep -B1', 'grep -B 1'],
+            20: ['grep -B1 -A2', 'grep -A2 -B1'],
+            21: ['/GATC', '/ GATC'],
         };
 
         function checkChallenge(num) {
