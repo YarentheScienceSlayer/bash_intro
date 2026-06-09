@@ -546,15 +546,28 @@
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 5: Filesystem Navigation</div>
+                <div class="quiz-title">Quiz 5: List Directory Reversed</div>
+                <div class="quiz-content">
+                    <p><strong>What is the correct command to list directory contents in reverse order?</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q5a" name="q5" value="a"><label for="q5a">ls -a</label></div>
+                    <div class="quiz-option"><input type="radio" id="q5b" name="q5" value="b"><label for="q5b">ls -h</label></div>
+                    <div class="quiz-option"><input type="radio" id="q5c" name="q5" value="c"><label for="q5c">ls -n</label></div>
+                    <div class="quiz-option"><input type="radio" id="q5d" name="q5" value="d"><label for="q5d">ls -r</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q5', 'd')">Check Answer</button>
+                    <div id="q5-feedback"></div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 6: Filesystem Navigation</div>
                 <div class="quiz-content">
                     <p>What does ~ represent?</p>
-                    <div class="quiz-option"><input type="radio" id="q5a" name="q5" value="a"><label for="q5a">Current directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5b" name="q5" value="b"><label for="q5b">Parent directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5c" name="q5" value="c"><label for="q5c">Your home directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5d" name="q5" value="d"><label for="q5d">Root directory</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q5', 'c')">Check Answer</button>
-                    <div id="q5-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q6a" name="q6" value="a"><label for="q6a">Current directory</label></div>
+                    <div class="quiz-option"><input type="radio" id="q6b" name="q6" value="b"><label for="q6b">Parent directory</label></div>
+                    <div class="quiz-option"><input type="radio" id="q6c" name="q6" value="c"><label for="q6c">Your home directory</label></div>
+                    <div class="quiz-option"><input type="radio" id="q6d" name="q6" value="d"><label for="q6d">Root directory</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q6', 'c')">Check Answer</button>
+                    <div id="q6-feedback"></div>
                 </div>
             </div>
         </div>
@@ -591,15 +604,15 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 6: cd ~ vs cd -</div>
+                <div class="quiz-title">Quiz 7: cd ~ vs cd -</div>
                 <div class="quiz-content">
                     <p>What's the difference between cd ~ and cd -?</p>
-                    <div class="quiz-option"><input type="radio" id="q6a" name="q6" value="a"><label for="q6a">cd ~ goes home; cd - goes to previous directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6b" name="q6" value="b"><label for="q6b">cd - goes home; cd ~ goes to previous directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6c" name="q6" value="c"><label for="q6c">They do the same thing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6d" name="q6" value="d"><label for="q6d">cd ~ only works on Linux</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q6', 'a')">Check Answer</button>
-                    <div id="q6-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q7a" name="q7" value="a"><label for="q7a">cd ~ goes home; cd - goes to previous directory</label></div>
+                    <div class="quiz-option"><input type="radio" id="q7b" name="q7" value="b"><label for="q7b">cd - goes home; cd ~ goes to previous directory</label></div>
+                    <div class="quiz-option"><input type="radio" id="q7c" name="q7" value="c"><label for="q7c">They do the same thing</label></div>
+                    <div class="quiz-option"><input type="radio" id="q7d" name="q7" value="d"><label for="q7d">cd ~ only works on Linux</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q7', 'a')">Check Answer</button>
+                    <div id="q7-feedback"></div>
                 </div>
             </div>
         </div>
@@ -672,15 +685,15 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 7: Which Command to Use?</div>
+                <div class="quiz-title">Quiz 8: Which Command to Use?</div>
                 <div class="quiz-content">
                     <p>You have a HUGE file (100 GB). Which command is UNSAFE?</p>
-                    <div class="quiz-option"><input type="radio" id="q7a" name="q7" value="a"><label for="q7a">head -n 100 huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7b" name="q7" value="b"><label for="q7b">cat huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7c" name="q7" value="c"><label for="q7c">less huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7d" name="q7" value="d"><label for="q7d">tail -n 50 huge.txt</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q7', 'b')">Check Answer</button>
-                    <div id="q7-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q8a" name="q8" value="a"><label for="q8a">head -n 100 huge.txt</label></div>
+                    <div class="quiz-option"><input type="radio" id="q8b" name="q8" value="b"><label for="q8b">cat huge.txt</label></div>
+                    <div class="quiz-option"><input type="radio" id="q8c" name="q8" value="c"><label for="q8c">less huge.txt</label></div>
+                    <div class="quiz-option"><input type="radio" id="q8d" name="q8" value="d"><label for="q8d">tail -n 50 huge.txt</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q8', 'b')">Check Answer</button>
+                    <div id="q8-feedback"></div>
                 </div>
             </div>
         </div>
@@ -718,33 +731,17 @@ $ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
                 <div id="feedback8"></div>
             </div>
 
-            <h3>Challenge 9: Calculate Number of Reads</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">From Lines to Reads</div>
-                <p>Write a command to count the number of reads in a FASTQ file (remember: 4 lines per read).</p>
-                <div class="code-editor">
-                    <textarea id="challenge9" placeholder="Type your command here... Hint: use wc -l and divide by 4"></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(9)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint9')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint9" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>wc -l reads.fastq | awk '{print $1/4}'</code> or similar</p>
-                </div>
-                <div id="feedback9"></div>
-            </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 8: File Size & Safety</div>
+                <div class="quiz-title">Quiz 9: File Size & Safety</div>
                 <div class="quiz-content">
                     <p>What's the safest reason to use cat on huge files?</p>
-                    <div class="quiz-option"><input type="radio" id="q8a" name="q8" value="a"><label for="q8a">To view everything</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8b" name="q8" value="b"><label for="q8b">To merge files efficiently</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8c" name="q8" value="c"><label for="q8c">When combined with pipes: cat file.txt | wc -l</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8d" name="q8" value="d"><label for="q8d">Both B and C</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q8', 'd')">Check Answer</button>
-                    <div id="q8-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q9a" name="q9" value="a"><label for="q9a">To view everything</label></div>
+                    <div class="quiz-option"><input type="radio" id="q9b" name="q9" value="b"><label for="q9b">To merge files efficiently</label></div>
+                    <div class="quiz-option"><input type="radio" id="q9c" name="q9" value="c"><label for="q9c">When combined with pipes: cat file.txt | wc -l</label></div>
+                    <div class="quiz-option"><input type="radio" id="q9d" name="q9" value="d"><label for="q9d">Both B and C</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q9', 'd')">Check Answer</button>
+                    <div id="q9-feedback"></div>
                 </div>
             </div>
         </div>
@@ -778,15 +775,15 @@ $ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 9: Redirection > vs >></div>
+                <div class="quiz-title">Quiz 10: Redirection > vs >></div>
                 <div class="quiz-content">
                     <p>What's the difference between > and >>?</p>
-                    <div class="quiz-option"><input type="radio" id="q9a" name="q9" value="a"><label for="q9a">> overwrites; >> appends</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9b" name="q9" value="b"><label for="q9b">>> overwrites; > appends</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9c" name="q9" value="c"><label for="q9c">They do the same thing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9d" name="q9" value="d"><label for="q9d">> is for files; >> is for directories</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q9', 'a')">Check Answer</button>
-                    <div id="q9-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q10a" name="q10" value="a"><label for="q10a">> overwrites; >> appends</label></div>
+                    <div class="quiz-option"><input type="radio" id="q10b" name="q10" value="b"><label for="q10b">>> overwrites; > appends</label></div>
+                    <div class="quiz-option"><input type="radio" id="q10c" name="q10" value="c"><label for="q10c">They do the same thing</label></div>
+                    <div class="quiz-option"><input type="radio" id="q10d" name="q10" value="d"><label for="q10d">> is for files; >> is for directories</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q10', 'a')">Check Answer</button>
+                    <div id="q10-feedback"></div>
                 </div>
             </div>
         </div>
@@ -821,15 +818,15 @@ $ file reads.fastq.gz    # Is it compressed?</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 10: File Type Detection</div>
+                <div class="quiz-title">Quiz 11: File Type Detection</div>
                 <div class="quiz-content">
                     <p>Why should you use 'file' command?</p>
-                    <div class="quiz-option"><input type="radio" id="q10a" name="q10" value="a"><label for="q10a">Extensions are always reliable</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10b" name="q10" value="b"><label for="q10b">To check real file type (not extension)</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10c" name="q10" value="c"><label for="q10c">To delete files</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10d" name="q10" value="d"><label for="q10d">It's slower than checking extension</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q10', 'b')">Check Answer</button>
-                    <div id="q10-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q11a" name="q11" value="a"><label for="q11a">Extensions are always reliable</label></div>
+                    <div class="quiz-option"><input type="radio" id="q11b" name="q11" value="b"><label for="q11b">To check real file type (not extension)</label></div>
+                    <div class="quiz-option"><input type="radio" id="q11c" name="q11" value="c"><label for="q11c">To delete files</label></div>
+                    <div class="quiz-option"><input type="radio" id="q11d" name="q11" value="d"><label for="q11d">It's slower than checking extension</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q11', 'b')">Check Answer</button>
+                    <div id="q11-feedback"></div>
                 </div>
             </div>
         </div>
@@ -888,15 +885,15 @@ $ mkdir -p results/{raw,processed,plots}</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 11: File Operations</div>
+                <div class="quiz-title">Quiz 12: File Operations</div>
                 <div class="quiz-content">
                     <p>What does mkdir -p do?</p>
-                    <div class="quiz-option"><input type="radio" id="q11a" name="q11" value="a"><label for="q11a">Removes directories</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11b" name="q11" value="b"><label for="q11b">Creates directories with parent directories if needed</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11c" name="q11" value="c"><label for="q11c">Prints directory contents</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11d" name="q11" value="d"><label for="q11d">Renames directories</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q11', 'b')">Check Answer</button>
-                    <div id="q11-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q12a" name="q12" value="a"><label for="q12a">Removes directories</label></div>
+                    <div class="quiz-option"><input type="radio" id="q12b" name="q12" value="b"><label for="q12b">Creates directories with parent directories if needed</label></div>
+                    <div class="quiz-option"><input type="radio" id="q12c" name="q12" value="c"><label for="q12c">Prints directory contents</label></div>
+                    <div class="quiz-option"><input type="radio" id="q12d" name="q12" value="d"><label for="q12d">Renames directories</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q12', 'b')">Check Answer</button>
+                    <div id="q12-feedback"></div>
                 </div>
             </div>
         </div>
@@ -938,6 +935,62 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
                 <div id="feedback14"></div>
             </div>
 
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 13: Copy Files with Wildcard</div>
+                <div class="quiz-content">
+                    <p><strong>How can cp be used to copy all .fasta files to the sequences directory?</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q13a" name="q13" value="a"><label for="q13a">cp ?.fasta sequences/</label></div>
+                    <div class="quiz-option"><input type="radio" id="q13b" name="q13" value="b"><label for="q13b">cp -r sequences/</label></div>
+                    <div class="quiz-option"><input type="radio" id="q13c" name="q13" value="c"><label for="q13c">cp *.fasta sequences/</label></div>
+                    <div class="quiz-option"><input type="radio" id="q13d" name="q13" value="d"><label for="q13d">cp -i sequences/</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q13', 'c')">Check Answer</button>
+                    <div id="q13-feedback"></div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 14: Copy Directory with Contents</div>
+                <div class="quiz-content">
+                    <p><strong>Select the command to copy a directory raw_data to backup_data including all its contents:</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q14a" name="q14" value="a"><label for="q14a">copy -a raw_data backup_data</label></div>
+                    <div class="quiz-option"><input type="radio" id="q14b" name="q14" value="b"><label for="q14b">cp -all raw_data backup_data</label></div>
+                    <div class="quiz-option"><input type="radio" id="q14c" name="q14" value="c"><label for="q14c">copy -r raw_data backup_data</label></div>
+                    <div class="quiz-option"><input type="radio" id="q14d" name="q14" value="d"><label for="q14d">cp -r raw_data backup_data</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q14', 'd')">Check Answer</button>
+                    <div id="q14-feedback"></div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 15: Rename File</div>
+                <div class="quiz-content">
+                    <p><strong>Select the command to rename old_seq.fasta to new_seq.fasta:</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q15a" name="q15" value="a"><label for="q15a">rename old_seq.fasta new_seq.fasta</label></div>
+                    <div class="quiz-option"><input type="radio" id="q15b" name="q15" value="b"><label for="q15b">move old_seq.fasta new_seq.fasta</label></div>
+                    <div class="quiz-option"><input type="radio" id="q15c" name="q15" value="c"><label for="q15c">write old_seq.fasta new_seq.fasta</label></div>
+                    <div class="quiz-option"><input type="radio" id="q15d" name="q15" value="d"><label for="q15d">mv old_seq.fasta new_seq.fasta</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q15', 'd')">Check Answer</button>
+                    <div id="q15-feedback"></div>
+                </div>
+            </div>
+
+            <h3>Challenge 21: Remove Directory</h3>
+            <div class="challenge-box">
+                <div class="challenge-title">Delete a Directory and Its Contents</div>
+                <p>Write the command to remove the Raw_data directory including all its contents.</p>
+                <div class="code-editor">
+                    <textarea id="challenge21" placeholder="Type your command here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="checkChallenge(21)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint21')">Show Answer</button>
+                </div>
+                <div class="hint-box" id="hint21" style="display: none;">
+                    <p><strong>Answer:</strong> <code>rm -r Raw_data</code></p>
+                </div>
+                <div id="feedback21"></div>
+            </div>
+
             <h3>Challenge 15: Use Pipes</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Chain Commands Together</div>
@@ -956,15 +1009,28 @@ $ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 12: Redirection and Pipes</div>
+                <div class="quiz-title">Quiz 16: cat with grep and Pipes</div>
+                <div class="quiz-content">
+                    <p><strong>How can cat be used with piping to find the word "Homo sapiens" in species.txt?</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q16a" name="q16" value="a"><label for="q16a">cat species.txt | grep "Homo sapiens"</label></div>
+                    <div class="quiz-option"><input type="radio" id="q16b" name="q16" value="b"><label for="q16b">cat , >></label></div>
+                    <div class="quiz-option"><input type="radio" id="q16c" name="q16" value="c"><label for="q16c">cat , ></label></div>
+                    <div class="quiz-option"><input type="radio" id="q16d" name="q16" value="d"><label for="q16d">cat , /</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q16', 'a')">Check Answer</button>
+                    <div id="q16-feedback"></div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 17: Redirection and Pipes</div>
                 <div class="quiz-content">
                     <p>What does the pipe (|) do?</p>
-                    <div class="quiz-option"><input type="radio" id="q12a" name="q12" value="a"><label for="q12a">Redirects to file</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12b" name="q12" value="b"><label for="q12b">Takes output of left command as input to right command</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12c" name="q12" value="c"><label for="q12c">Deletes files</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12d" name="q12" value="d"><label for="q12d">Appends to file</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q12', 'b')">Check Answer</button>
-                    <div id="q12-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q17a" name="q17" value="a"><label for="q17a">Redirects to file</label></div>
+                    <div class="quiz-option"><input type="radio" id="q17b" name="q17" value="b"><label for="q17b">Takes output of left command as input to right command</label></div>
+                    <div class="quiz-option"><input type="radio" id="q17c" name="q17" value="c"><label for="q17c">Deletes files</label></div>
+                    <div class="quiz-option"><input type="radio" id="q17d" name="q17" value="d"><label for="q17d">Appends to file</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q17', 'b')">Check Answer</button>
+                    <div id="q17-feedback"></div>
                 </div>
             </div>
         </div>
@@ -1053,17 +1119,48 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 13: grep Mastery</div>
+                <div class="quiz-title">Quiz 18: grep Mastery</div>
                 <div class="quiz-content">
                     <p>What does grep -v do?</p>
-                    <div class="quiz-option"><input type="radio" id="q13a" name="q13" value="a"><label for="q13a">Shows only matching lines</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13b" name="q13" value="b"><label for="q13b">Shows all lines EXCEPT matching ones (inverts search)</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13c" name="q13" value="c"><label for="q13c">Validates grep syntax</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13d" name="q13" value="d"><label for="q13d">Displays file version</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q13', 'b')">Check Answer</button>
-                    <div id="q13-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q18a" name="q18" value="a"><label for="q18a">Shows only matching lines</label></div>
+                    <div class="quiz-option"><input type="radio" id="q18b" name="q18" value="b"><label for="q18b">Shows all lines EXCEPT matching ones (inverts search)</label></div>
+                    <div class="quiz-option"><input type="radio" id="q18c" name="q18" value="c"><label for="q18c">Validates grep syntax</label></div>
+                    <div class="quiz-option"><input type="radio" id="q18d" name="q18" value="d"><label for="q18d">Displays file version</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q18', 'b')">Check Answer</button>
+                    <div id="q18-feedback"></div>
                 </div>
             </div>
+
+            <h3>Challenge 22: Extract Previous Line with grep</h3>
+            <div class="challenge-box">
+                <div class="challenge-title">Show Context Before Match</div>
+                <p>Use the correct flags to extract the previous line while using grep for searching "ATGC" pattern in reads.fastq:</p>
+                <div class="code-editor">
+                    <textarea id="challenge22" placeholder="Type your command here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="checkChallenge(22)">Check Answer</button>
+                    <button class="btn-secondary" onclick="toggleHint('hint22')">Show Answer</button>
+                </div>
+                <div class="hint-box" id="hint22" style="display: none;">
+                    <p><strong>Answer:</strong> <code>grep -B1 "ATGC" reads.fastq</code></p>
+                </div>
+                <div id="feedback22"></div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 19: grep with -B Flag</div>
+                <div class="quiz-content">
+                    <p><strong>Use the correct flags to extract the previous line while using grep for searching "ATGC" pattern in reads.fastq:</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q19a" name="q19" value="a"><label for="q19a">grep -B1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19b" name="q19" value="b"><label for="q19b">grep -A1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19c" name="q19" value="c"><label for="q19c">grep -C1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19d" name="q19" value="d"><label for="q19d">grep -L "ATGC" reads.fastq</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q19', 'a')">Check Answer</button>
+                    <div id="q19-feedback"></div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Section 11: less -->
@@ -1103,15 +1200,15 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
             </div>
 
             <div class="quiz-section">
-                <div class="quiz-title">Quiz 14: File Navigation</div>
+                <div class="quiz-title">Quiz 20: File Navigation</div>
                 <div class="quiz-content">
                     <p>Inside less, how do you search for a pattern?</p>
-                    <div class="quiz-option"><input type="radio" id="q14a" name="q14" value="a"><label for="q14a">Type the pattern directly</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14b" name="q14" value="b"><label for="q14b">Press / then type the pattern</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14c" name="q14" value="c"><label for="q14c">Press ? then type the pattern</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14d" name="q14" value="d"><label for="q14d">Both B and C work</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q14', 'd')">Check Answer</button>
-                    <div id="q14-feedback"></div>
+                    <div class="quiz-option"><input type="radio" id="q20a" name="q20" value="a"><label for="q20a">Type the pattern directly</label></div>
+                    <div class="quiz-option"><input type="radio" id="q20b" name="q20" value="b"><label for="q20b">Press / then type the pattern</label></div>
+                    <div class="quiz-option"><input type="radio" id="q20c" name="q20" value="c"><label for="q20c">Press ? then type the pattern</label></div>
+                    <div class="quiz-option"><input type="radio" id="q20d" name="q20" value="d"><label for="q20d">Both B and C work</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q20', 'd')">Check Answer</button>
+                    <div id="q20-feedback"></div>
                 </div>
             </div>
         </div>
@@ -1152,22 +1249,24 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
             2: ['ls', 'ls -l', 'ls -lh'],
             3: ['ls -l', 'ls -lh'],
             4: ['cd ~', 'cd~'],
-            5: ['head -n 10 data.txt', 'head -10 data.txt'],
-            6: ['tail -n 5 results.txt', 'tail -5 results.txt'],
-            7: ['tail -n +2 filename', 'tail -n +2'],
-            8: ['wc -l reads.fastq'],
+            5: ['head data.txt', 'head -n10', 'head -10', 'head -n 10'],
+            6: ['tail -n 5', 'tail -n5', 'tail -5'],
+            7: ['tail -n +2', 'tail -n+2'],
+            8: ['wc -l'],
             9: ['wc -l reads.fastq | awk', 'divide by 4', '/4'],
             10: ['cat sample1.txt sample2.txt > combined.txt'],
             11: ['file mystery.data'],
             12: ['mkdir -p project/data/raw'],
             13: ['touch read{1..20}.fastq'],
             14: ['cat new_data.txt >> existing_data.txt'],
-            15: ['cat file.txt | wc -l'],
-            16: ['grep "error" log.txt'],
-            17: ['grep -i "error"'],
+            15: ['cat file.txt | grep', 'cat file.txt | wc'],
+            16: ['grep error', 'grep "error"', "grep 'error'"],
+            17: ['grep -i error', 'grep -i "error"', "grep -i 'error'"],
             18: ['grep -c "READ" analysis.txt'],
-            19: ['grep -v "^@" reads.fastq'],
-            20: ['/GATC', '/ GATC']
+            19: ['grep -v'],
+            20: ['/GATC', '/ GATC'],
+            21: ['rm -r Raw_data'],
+            22: ['grep -B1', 'grep -B 1'],
         };
 
         function checkChallenge(num) {
@@ -1208,7 +1307,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
         }
 
         function updateProgress() {
-            const total = 34; // 20 challenges + 14 quizzes
+            const total = 43; // 22 challenges + 21 quizzes
             const completed = document.querySelectorAll('.feedback.success').length;
             const percentage = (completed / total) * 100;
             document.getElementById('progress').style.width = percentage + '%';
