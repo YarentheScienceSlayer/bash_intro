@@ -1143,6 +1143,19 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 </div>
             </div>
 
+            <div class="quiz-section">
+                <div class="quiz-title">Quiz 19: grep with -B Flag</div>
+                <div class="quiz-content">
+                    <p><strong>Use the correct flags to extract the previous line while using grep for searching "ATGC" pattern in reads.fastq:</strong></p>
+                    <div class="quiz-option"><input type="radio" id="q19a" name="q19" value="a"><label for="q19a">grep -B1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19b" name="q19" value="b"><label for="q19b">grep -A1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19c" name="q19" value="c"><label for="q19c">grep -C1 "ATGC" reads.fastq</label></div>
+                    <div class="quiz-option"><input type="radio" id="q19d" name="q19" value="d"><label for="q19d">grep -L "ATGC" reads.fastq</label></div>
+                    <button class="btn-primary" onclick="checkQuiz('q19', 'a')">Check Answer</button>
+                    <div id="q19-feedback"></div>
+                </div>
+            </div>
+
             <h3>Challenge 20: Extract sequence Line with grep</h3>
             <div class="challenge-box">
                 <div class="challenge-title">Show Context Before Match</div>
@@ -1160,18 +1173,7 @@ $ grep "pattern" file.txt | wc -l      # Count matches</pre>
                 <div id="feedback20"></div>
             </div>
 
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 19: grep with -B Flag</div>
-                <div class="quiz-content">
-                    <p><strong>Use the correct flags to extract the previous line while using grep for searching "ATGC" pattern in reads.fastq:</strong></p>
-                    <div class="quiz-option"><input type="radio" id="q19a" name="q19" value="a"><label for="q19a">grep -B1 "ATGC" reads.fastq</label></div>
-                    <div class="quiz-option"><input type="radio" id="q19b" name="q19" value="b"><label for="q19b">grep -A1 "ATGC" reads.fastq</label></div>
-                    <div class="quiz-option"><input type="radio" id="q19c" name="q19" value="c"><label for="q19c">grep -C1 "ATGC" reads.fastq</label></div>
-                    <div class="quiz-option"><input type="radio" id="q19d" name="q19" value="d"><label for="q19d">grep -L "ATGC" reads.fastq</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q19', 'a')">Check Answer</button>
-                    <div id="q19-feedback"></div>
-                </div>
-            </div>
+           
 
         </div>
 
