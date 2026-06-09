@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BASH Intro - Interactive Homework</title>
+    <title>BASH Intro - Course Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -30,35 +30,26 @@
             background: linear-gradient(135deg, var(--primary) 0%, #0f0f23 100%);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
+        /* Header */
         header {
             background: rgba(15, 23, 42, 0.95);
             border-bottom: 2px solid var(--accent);
-            padding: 2rem 1rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            padding: 3rem 1rem;
             backdrop-filter: blur(10px);
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-
-        header.hide {
-            transform: translateY(-100%);
         }
 
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
+            text-align: center;
         }
 
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--accent) 0%, #06d6d4 100%);
             -webkit-background-clip: text;
@@ -66,27 +57,239 @@
             background-clip: text;
         }
 
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
         .subtitle {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
+        /* Main Content */
         main {
             max-width: 1200px;
-            margin: 140px auto 0 auto;
-            padding: 2rem 1rem 3rem 1rem;
+            margin: 0 auto;
+            padding: 3rem 1rem;
         }
 
-        .section {
+        .intro-section {
             background: rgba(30, 41, 59, 0.6);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            animation: slideIn 0.5s ease-out;
+            margin-bottom: 3rem;
             backdrop-filter: blur(10px);
         }
 
+        .intro-section h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Lectures Grid */
+        .lectures-section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .lectures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .lecture-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .lecture-card:hover {
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .lecture-number {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .lecture-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .lecture-card p {
+            color: var(--text-secondary);
+            flex: 1;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .lecture-topics {
+            background: rgba(15, 17, 35, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lecture-topics strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .topics-list {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .lecture-link {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .lecture-link:hover {
+            background: #00d4d4;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .coming-soon .lecture-link {
+            background: var(--border);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .coming-soon .lecture-link:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .badge-coming {
+            display: inline-block;
+            background: var(--warning);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stats-section h2 {
+            font-family: 'Syne', sans-serif;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .lectures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                padding: 2rem 0;
+            }
+        }
+
+        /* Animations */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -98,298 +301,16 @@
             }
         }
 
-        .section h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            border-left: 4px solid var(--accent);
-            padding-left: 1rem;
+        .lecture-card {
+            animation: slideIn 0.5s ease-out;
         }
 
-        .section h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.3rem;
-            margin: 1.5rem 0 1rem 0;
-            color: var(--text-primary);
+        .lecture-card:nth-child(2) {
+            animation-delay: 0.1s;
         }
 
-        .content-box {
-            background: rgba(15, 17, 35, 0.5);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        p {
-            margin: 1rem 0;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        code {
-            background: var(--bg-code);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            color: var(--accent);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        pre {
-            background: var(--bg-code);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-
-        pre code {
-            color: var(--accent);
-            padding: 0;
-            background: none;
-        }
-
-        .challenge-box {
-            background: rgba(15, 17, 35, 0.7);
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .challenge-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .challenge-title::before {
-            content: "⚡";
-            font-size: 1.3rem;
-        }
-
-        .code-editor {
-            background: var(--bg-code);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .code-editor textarea {
-            width: 100%;
-            background: var(--bg-code);
-            color: var(--accent);
-            border: none;
-            border-radius: 4px;
-            padding: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            min-height: 80px;
-            resize: vertical;
-            outline: none;
-        }
-
-        .code-editor textarea::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-family: 'Syne', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .btn-primary:hover {
-            background: #00d4d4;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border);
-            border-color: var(--accent);
-        }
-
-        .feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .feedback.success {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: var(--success);
-            color: #a7f3d0;
-        }
-
-        .feedback.error {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: var(--danger);
-            color: #fca5a5;
-        }
-
-        .quiz-section {
-            background: rgba(15, 17, 35, 0.7);
-            border: 2px solid var(--warning);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .quiz-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
-            color: var(--warning);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .quiz-title::before {
-            content: "❓";
-            font-size: 1.3rem;
-        }
-
-        .quiz-option {
-            background: rgba(30, 41, 59, 0.5);
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            border-radius: 6px;
-            border: 2px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .quiz-option:hover {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: var(--accent);
-        }
-
-        .quiz-option input[type="radio"] {
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--accent);
-            flex-shrink: 0;
-            margin: 0;
-        }
-
-        .quiz-option label {
-            cursor: pointer;
-            flex: 1;
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .hint-box {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid var(--warning);
-            border-radius: 6px;
-            padding: 1rem;
-            margin: 1rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .hint-box:hover {
-            background: rgba(245, 158, 11, 0.15);
-        }
-
-        .hint-box p {
-            margin: 0;
-            color: #fcd34d;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: var(--border);
-            border-radius: 0;
-            margin-bottom: 0;
-            overflow: hidden;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            z-index: 98;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent) 0%, #4a6b8a 100%);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-            width: 0%
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
-        }
-
-        ul {
-            margin-left: 2rem;
-            margin-top: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .section h2 {
-                font-size: 1.4rem;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-            }
+        .lecture-card:nth-child(3) {
+            animation-delay: 0.2s;
         }
     </style>
 </head>
@@ -397,822 +318,116 @@
     <header>
         <div class="header-content">
             <h1>🐚 BASH Intro</h1>
-            <p class="subtitle">Lecture 1</p>
+            <p class="tagline">For When Point-and-Click Simply Won't Suffice</p>
+            <p class="subtitle">Welcome! The terminal isn't the hero you wanted, but it's the hero your workflow needs right now.</p>
         </div>
     </header>
 
     <main>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
+        <!-- Introduction -->
+        <div class="intro-section">
+            <h2>Welcome to BASH Intro!</h2>
+            <p>
+                This course is designed to teach you the fundamentals of BASH shell scripting and command-line operations. 
+                Each lecture includes:
+            </p>
+            <ul style="margin-left: 2rem; color: var(--text-secondary);">
+                <li>📚 Concept explanations</li>
+                <li>⚡ Interactive coding challenges</li>
+                <li>❓ Multiple-choice quizzes</li>
+                <li>💡 Hint system for stuck moments</li>
+            </ul>
         </div>
 
-        <!-- Study Reminder Section -->
-        <div class="section">
-            <h2>📚 Before You Start</h2>
-            <div class="content-box">
-                <h3>Study the Lecture Slides First!</h3>
-                <p><strong>⚠️ Important:</strong> This homework is meant to test what you learned from the lecture slides, NOT to teach you.</p>
-                <p style="margin-top: 1.5rem; color: #fcd34d;"><strong>Then come back here to test your knowledge!</strong></p>
-            </div>
-        </div>
-
-        <!-- Section 1: Concepts Quiz -->
-        <div class="section">
-            <h2>📚 Fundamental Concepts</h2>
+        <!-- Lectures -->
+        <section class="lectures-section">
+            <h2>📖 Available Lectures</h2>
             
-            <div class="content-box">
-                <h3>Test Your Knowledge</h3>
-                <p>Before we start coding, let's make sure you understand the basic terminology!</p>
-            </div>
+            <div class="lectures-grid">
+                <!-- Lecture 1 -->
+                <div class="lecture-card">
+                    <div class="lecture-number">Lecture 1</div>
+                    <h3>BASH Basics & Filesystem</h3>
+                    <p>
+                        Learn the fundamentals of BASH, navigate the filesystem, work with files and directories, 
+                        and understand core concepts like redirection and piping.
+                    </p>
+                    <div class="lecture-topics">
+                        <strong>Topics Covered:</strong>
+                        <div class="topics-list">
+                            pwd, ls, cd, file operations, head, tail, cat, wc, grep...
+                        </div>
+                    </div>
+                    <a href="lecture_1/" class="lecture-link">Start Lecture 1</a>
+                </div>
 
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 1: Hardware vs Software</div>
-                <div class="quiz-content">
-                    <p>Which one is NOT hardware?</p>
-                    <div class="quiz-option"><input type="radio" id="q1a" name="q1" value="a"><label for="q1a">CPU</label></div>
-                    <div class="quiz-option"><input type="radio" id="q1b" name="q1" value="b"><label for="q1b">RAM</label></div>
-                    <div class="quiz-option"><input type="radio" id="q1c" name="q1" value="c"><label for="q1c">Operating System</label></div>
-                    <div class="quiz-option"><input type="radio" id="q1d" name="q1" value="d"><label for="q1d">Disk</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q1', 'c')">Check Answer</button>
-                    <div id="q1-feedback"></div>
+                <!-- Lecture 2 - Coming Soon Template -->
+                <div class="lecture-card coming-soon">
+                    <div class="lecture-number">Lecture 2</div>
+                    <div class="badge-coming">Coming Soon</div>
+                    <h3>Regex & File Manipulation</h3>
+                    <p>
+                        Learn more about I/O streams, Regex and File manipulation commands.
+                    </p>
+                    <div class="lecture-topics">
+                        <strong>Topics Covered:</strong>
+                        <div class="topics-list">
+                            stdin, stdout, stderr, $?, Regex, sort, uniq, cut, paste, comm, tr, sed, awk...
+                        </div>
+                    </div>
+                    <a href="lecture_2/" class="lecture-link">Coming Soon</a>
                 </div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 2: Operating Systems</div>
-                <div class="quiz-content">
-                    <p>Which of these is an operating system?</p>
-                    <div class="quiz-option"><input type="radio" id="q2a" name="q2" value="a"><label for="q2a">Bash</label></div>
-                    <div class="quiz-option"><input type="radio" id="q2b" name="q2" value="b"><label for="q2b">Linux</label></div>
-                    <div class="quiz-option"><input type="radio" id="q2c" name="q2" value="c"><label for="q2c">Windows</label></div>
-                    <div class="quiz-option"><input type="radio" id="q2d" name="q2" value="d"><label for="q2d">Both B and C are correct</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q2', 'd')">Check Answer</button>
-                    <div id="q2-feedback"></div>
-                </div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 3: Shell vs Kernel</div>
-                <div class="quiz-content">
-                    <p>What's the difference between Kernel and Shell?</p>
-                    <div class="quiz-option"><input type="radio" id="q3a" name="q3" value="a"><label for="q3a">The kernel is a program; the shell manages hardware</label></div>
-                    <div class="quiz-option"><input type="radio" id="q3b" name="q3" value="b"><label for="q3b">The shell is a program; the kernel manages hardware</label></div>
-                    <div class="quiz-option"><input type="radio" id="q3c" name="q3" value="c"><label for="q3c">They are the same thing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q3d" name="q3" value="d"><label for="q3d">The kernel is only for Linux</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q3', 'b')">Check Answer</button>
-                    <div id="q3-feedback"></div>
-                </div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 4: HPC and Why Bash?</div>
-                <div class="quiz-content">
-                    <p>What does HPC stand for?</p>
-                    <div class="quiz-option"><input type="radio" id="q4a" name="q4" value="a"><label for="q4a">High Power Computing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q4b" name="q4" value="b"><label for="q4b">High Performance Computing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q4c" name="q4" value="c"><label for="q4c">Home Personal Computer</label></div>
-                    <div class="quiz-option"><input type="radio" id="q4d" name="q4" value="d"><label for="q4d">Hardware Performance Core</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q4', 'b')">Check Answer</button>
-                    <div id="q4-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2: Filesystem Basics -->
-        <div class="section">
-            <h2>📁 Filesystem Basics & Navigation</h2>
-            
-            <div class="content-box">
-                <h3>Understanding Paths and Directories</h3>
-                <p>The filesystem is like a filing cabinet. Let's explore it!</p>
-                <p><strong>Key concepts:</strong></p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><code>/</code> = Root directory (everything lives under it)</li>
-                    <li><code>~</code> = Your home directory</li>
-                    <li><code>.</code> = Current directory</li>
-                    <li><code>..</code> = Parent directory</li>
-                </ul>
-            </div>
-
-            <h3>Challenge 1: Where Are You?</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Find Your Current Location</div>
-                <p>Write a command to print your current working directory.</p>
-                <div class="code-editor">
-                    <textarea id="challenge1" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(1)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint1')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint1" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>pwd</code> (Print Working Directory)</p>
-                </div>
-                <div id="feedback1"></div>
-            </div>
-
-            <h3>Challenge 2: List Files and Folders</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">What's in Your Directory?</div>
-                <p>Write a command to list all files and folders in your current directory.</p>
-                <div class="code-editor">
-                    <textarea id="challenge2" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(2)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint2')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint2" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>ls</code> to list files</p>
-                </div>
-                <div id="feedback2"></div>
-            </div>
-
-            <h3>Challenge 3: Long Format Listing</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Show File Details (Size, Permissions, Date)</div>
-                <p>Write a command to list files with details like permissions, size, date modified, and owner.</p>
-                <div class="code-editor">
-                    <textarea id="challenge3" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(3)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint3')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint3" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>ls -l</code> (long format) or <code>ls -lh</code> (human-readable sizes)</p>
-                </div>
-                <div id="feedback3"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 5: Filesystem Navigation</div>
-                <div class="quiz-content">
-                    <p>What does ~ represent?</p>
-                    <div class="quiz-option"><input type="radio" id="q5a" name="q5" value="a"><label for="q5a">Current directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5b" name="q5" value="b"><label for="q5b">Parent directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5c" name="q5" value="c"><label for="q5c">Your home directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q5d" name="q5" value="d"><label for="q5d">Root directory</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q5', 'c')">Check Answer</button>
-                    <div id="q5-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 3: cd command -->
-        <div class="section">
-            <h2>🚀 Navigation with cd</h2>
-            
-            <div class="content-box">
-                <h3>The Power of <code>cd -</code> and <code>cd ~</code></h3>
-                <p><code>cd ~</code> takes you back to your home directory. This is useful when you're lost in deep directories.</p>
-                <p><code>cd -</code> takes you back to the PREVIOUS directory you were in. Super useful for switching between two places!</p>
-                <pre>$ cd /very/deep/path/to/data
-$ cd /another/deep/path/to/results
-$ cd -          # Jump back to /very/deep/path/to/data
-$ cd -          # Jump back to /another/deep/path/to/results (alternates)</pre>
-            </div>
-
-            <h3>Challenge 4: Navigate the Filesystem</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Go to Your Home Directory</div>
-                <p>Write the command to navigate to your home directory using a shortcut.</p>
-                <div class="code-editor">
-                    <textarea id="challenge4" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(4)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint4')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint4" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>cd ~</code> to go home</p>
-                </div>
-                <div id="feedback4"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 6: cd ~ vs cd -</div>
-                <div class="quiz-content">
-                    <p>What's the difference between cd ~ and cd -?</p>
-                    <div class="quiz-option"><input type="radio" id="q6a" name="q6" value="a"><label for="q6a">cd ~ goes home; cd - goes to previous directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6b" name="q6" value="b"><label for="q6b">cd - goes home; cd ~ goes to previous directory</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6c" name="q6" value="c"><label for="q6c">They do the same thing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q6d" name="q6" value="d"><label for="q6d">cd ~ only works on Linux</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q6', 'a')">Check Answer</button>
-                    <div id="q6-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 4: Reading Files -->
-        <div class="section">
-            <h2>📖 Reading Files</h2>
-            
-            <div class="content-box">
-                <h3>Different Ways to Read Files</h3>
-                <p>Depending on what you need, use different commands:</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><code>head -n 10 file.txt</code> → First 10 lines</li>
-                    <li><code>tail -n 5 file.txt</code> → Last 5 lines</li>
-                    <li><code>tail -n +2 file.txt</code> → All lines EXCEPT the first</li>
-                    <li><code>cat file.txt</code> → All lines (use with caution on huge files!)</li>
-                    <li><code>less file.txt</code> → Page through file (press <code>q</code> to quit)</li>
-                </ul>
-            </div>
-
-            <h3>Challenge 5: Read First Lines</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Show First 10 Lines of a File</div>
-                <p>Write a command to display the first 10 lines of a file named <code>data.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge5" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(5)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint5')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint5" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>head -n 10 data.txt</code></p>
-                </div>
-                <div id="feedback5"></div>
-            </div>
-
-            <h3>Challenge 6: Read Last Lines</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Show Last 5 Lines of a File</div>
-                <p>Write a command to display the last 5 lines of a file named <code>results.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge6" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(6)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint6')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint6" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>tail -n 5 results.txt</code></p>
-                </div>
-                <div id="feedback6"></div>
-            </div>
-
-            <h3>Challenge 7: Skip First Line</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Skip the Header</div>
-                <p>Write a command to show all lines of a file EXCEPT the first one (useful for skipping headers).</p>
-                <div class="code-editor">
-                    <textarea id="challenge7" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(7)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint7')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint7" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>tail -n +2 filename</code> (this means "from line 2 onwards")</p>
-                </div>
-                <div id="feedback7"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 7: Which Command to Use?</div>
-                <div class="quiz-content">
-                    <p>You have a HUGE file (100 GB). Which command is UNSAFE?</p>
-                    <div class="quiz-option"><input type="radio" id="q7a" name="q7" value="a"><label for="q7a">head -n 100 huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7b" name="q7" value="b"><label for="q7b">cat huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7c" name="q7" value="c"><label for="q7c">less huge.txt</label></div>
-                    <div class="quiz-option"><input type="radio" id="q7d" name="q7" value="d"><label for="q7d">tail -n 50 huge.txt</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q7', 'b')">Check Answer</button>
-                    <div id="q7-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5: FASTA/FASTQ Files -->
-        <div class="section">
-            <h2>🧬 Counting Reads in FASTQ Files</h2>
-            
-            <div class="content-box">
-                <h3>Why This Matters in Bioinformatics</h3>
-                <p>FASTQ files store sequencing reads. Each read takes exactly <strong>4 lines</strong>:</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li>Line 1: Sequence ID (starts with @)</li>
-                    <li>Line 2: DNA sequence</li>
-                    <li>Line 3: Plus sign (+)</li>
-                    <li>Line 4: Quality scores</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Formula:</strong> Number of reads = Total lines ÷ 4</p>
-            </div>
-
-            <h3>Challenge 8: Count Lines in a File</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">How Many Reads?</div>
-                <p>Write a command to count the total number of lines in a FASTQ file named <code>reads.fastq</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge8" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(8)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint8')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint8" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>wc -l reads.fastq</code> (wc = word count, -l = lines)</p>
-                </div>
-                <div id="feedback8"></div>
-            </div>
-
-            <h3>Challenge 9: Calculate Number of Reads</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">From Lines to Reads</div>
-                <p>Write a command to count the number of reads in a FASTQ file (remember: 4 lines per read).</p>
-                <div class="code-editor">
-                    <textarea id="challenge9" placeholder="Type your command here... Hint: use wc -l and divide by 4"></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(9)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint9')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint9" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>wc -l reads.fastq | awk '{print $1/4}'</code> or similar</p>
-                </div>
-                <div id="feedback9"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 8: File Size & Safety</div>
-                <div class="quiz-content">
-                    <p>What's the safest reason to use cat on huge files?</p>
-                    <div class="quiz-option"><input type="radio" id="q8a" name="q8" value="a"><label for="q8a">To view everything</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8b" name="q8" value="b"><label for="q8b">To merge files efficiently</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8c" name="q8" value="c"><label for="q8c">When combined with pipes: cat file.txt | wc -l</label></div>
-                    <div class="quiz-option"><input type="radio" id="q8d" name="q8" value="d"><label for="q8d">Both B and C</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q8', 'd')">Check Answer</button>
-                    <div id="q8-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 6: Merging Files -->
-        <div class="section">
-            <h2>🔗 Merging and Redirecting Files</h2>
-            
-            <div class="content-box">
-                <h3>Combining Files with <code>cat</code></h3>
-                <p><code>cat</code> (concatenate) reads one or more files and prints them. Very useful for combining data!</p>
-                <pre>$ cat file1.txt file2.txt         # Print both to screen
-$ cat file1.txt file2.txt > merged.txt  # Merge into new file</pre>
-            </div>
-
-            <h3>Challenge 10: Merge Files</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Combine Multiple Files</div>
-                <p>Write a command to merge <code>sample1.txt</code> and <code>sample2.txt</code> into a new file called <code>combined.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge10" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(10)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint10')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint10" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>cat sample1.txt sample2.txt > combined.txt</code></p>
-                </div>
-                <div id="feedback10"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 9: Redirection > vs >></div>
-                <div class="quiz-content">
-                    <p>What's the difference between > and >>?</p>
-                    <div class="quiz-option"><input type="radio" id="q9a" name="q9" value="a"><label for="q9a">> overwrites; >> appends</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9b" name="q9" value="b"><label for="q9b">>> overwrites; > appends</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9c" name="q9" value="c"><label for="q9c">They do the same thing</label></div>
-                    <div class="quiz-option"><input type="radio" id="q9d" name="q9" value="d"><label for="q9d">> is for files; >> is for directories</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q9', 'a')">Check Answer</button>
-                    <div id="q9-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 7: File Type -->
-        <div class="section">
-            <h2>🔍 Identifying File Types</h2>
-            
-            <div class="content-box">
-                <h3>Why Knowing File Type Matters</h3>
-                <p>Don't trust file extensions! Use <code>file</code> command to check what's really inside.</p>
-                <pre>$ file data.txt          # Is it really a text file?
-$ file image.png         # Check image format
-$ file reads.fastq.gz    # Is it compressed?</pre>
-            </div>
-
-            <h3>Challenge 11: Identify File Type</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">What Type of File Is This?</div>
-                <p>Write a command to check what type of file <code>mystery.data</code> actually is.</p>
-                <div class="code-editor">
-                    <textarea id="challenge11" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(11)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint11')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint11" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>file mystery.data</code></p>
-                </div>
-                <div id="feedback11"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 10: File Type Detection</div>
-                <div class="quiz-content">
-                    <p>Why should you use 'file' command?</p>
-                    <div class="quiz-option"><input type="radio" id="q10a" name="q10" value="a"><label for="q10a">Extensions are always reliable</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10b" name="q10" value="b"><label for="q10b">To check real file type (not extension)</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10c" name="q10" value="c"><label for="q10c">To delete files</label></div>
-                    <div class="quiz-option"><input type="radio" id="q10d" name="q10" value="d"><label for="q10d">It's slower than checking extension</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q10', 'b')">Check Answer</button>
-                    <div id="q10-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 8: Creating Files -->
-        <div class="section">
-            <h2>✨ Creating Files and Directories</h2>
-            
-            <div class="content-box">
-                <h3>Make Directories (with parents)</h3>
-                <pre>$ mkdir project                  # Single directory
-$ mkdir -p project/data/raw      # With parent directories (-p flag)</pre>
                 
-                <h3>Create Empty Files</h3>
-                <pre>$ touch file.txt                 # Create empty file
-$ touch {1..5}.txt              # Create file1.txt, file2.txt... file5.txt (brace expansion!)</pre>
+                 <!-- Lecture 3 - Coming Soon Template -->
+                <div class="lecture-card coming-soon">
+                    <div class="lecture-number">Lecture 3</div>
+                    <div class="badge-coming">Coming Soon</div>
+                    <h3>Variables & Scripts</h3>
+                    <p>
+                        Dive deeper into BASH scripting. Learn about variables, data types, control flow, 
+                        and write your first scripts.
+                    </p>
+                    <div class="lecture-topics">
+                        <strong>Topics Covered:</strong>
+                        <div class="topics-list">
+                            Variables, loops, conditionals, functions, and scripting basics
+                        </div>
+                    </div>
+                    <a href="lecture_3/" class="lecture-link">Coming Soon</a>
+                </div>
 
-                <h3>Brace Expansion for Bulk Creation</h3>
-                <p>Create multiple files at once:</p>
-                <pre>$ touch sample_{A,B,C}.fastq    # Creates sample_A.fastq, sample_B.fastq, sample_C.fastq
-$ mkdir -p results/{raw,processed,plots}</pre>
+               
             </div>
+        </section>
 
-            <h3>Challenge 12: Create Directories</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Build a Project Structure</div>
-                <p>Write a command to create a directory structure: <code>project/data/raw</code> (with parent directories).</p>
-                <div class="code-editor">
-                    <textarea id="challenge12" placeholder="Type your command here..."></textarea>
+        <!-- Statistics -->
+        <div class="stats-section">
+            <h2>📊 Course Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Active Lectures</div>
                 </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(12)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint12')">Show Answer</button>
+                <div class="stat-item">
+                    <div class="stat-number">36</div>
+                    <div class="stat-label">Interactive Questions</div>
                 </div>
-                <div class="hint-box" id="hint12" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>mkdir -p project/data/raw</code></p>
+                <div class="stat-item">
+                    <div class="stat-number">22</div>
+                    <div class="stat-label">Coding Challenges</div>
                 </div>
-                <div id="feedback12"></div>
-            </div>
-
-            <h3>Challenge 13: Create Multiple Files with Brace Expansion</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Bulk Create Files</div>
-                <p>Write a command to create 20 files at once named <code>read1.fastq, read2.fastq, ..., read20.fastq</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge13" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(13)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint13')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint13" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>touch read{1..20}.fastq</code></p>
-                </div>
-                <div id="feedback13"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 11: File Operations</div>
-                <div class="quiz-content">
-                    <p>What does mkdir -p do?</p>
-                    <div class="quiz-option"><input type="radio" id="q11a" name="q11" value="a"><label for="q11a">Removes directories</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11b" name="q11" value="b"><label for="q11b">Creates directories with parent directories if needed</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11c" name="q11" value="c"><label for="q11c">Prints directory contents</label></div>
-                    <div class="quiz-option"><input type="radio" id="q11d" name="q11" value="d"><label for="q11d">Renames directories</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q11', 'b')">Check Answer</button>
-                    <div id="q11-feedback"></div>
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Quiz Questions</div>
                 </div>
             </div>
-        </div>
-
-        <!-- Section 9: Piping -->
-        <div class="section">
-            <h2>🔀 Piping and Redirection</h2>
-            
-            <div class="content-box">
-                <h3>The Difference: > vs >></h3>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><code>></code> = Overwrite the file (destroys old content!)</li>
-                    <li><code>>></code> = Append to the file (keeps old content)</li>
-                </ul>
-                <pre>$ ls > files.txt              # Creates OR overwrites files.txt
-$ ls >> files.txt             # Appends to files.txt
-$ cat data.txt | wc -l        # Pipe: send output as input to next command</pre>
-
-                <h3>The Pipe (<code>|</code>)</h3>
-                <p>Chain commands together! Output of left command → input of right command:</p>
-                <pre>$ cat huge_file.txt | wc -l    # Count lines (efficient for huge files!)
-$ cat data.txt | grep "error" | head -5  # Find "error" lines, show first 5</pre>
-            </div>
-
-            <h3>Challenge 14: Append to File</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Add More Data Without Destroying Old Data</div>
-                <p>Write a command to append the contents of <code>new_data.txt</code> to <code>existing_data.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge14" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(14)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint14')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint14" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>cat new_data.txt >> existing_data.txt</code></p>
-                </div>
-                <div id="feedback14"></div>
-            </div>
-
-            <h3>Challenge 15: Use Pipes</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Chain Commands Together</div>
-                <p>Write a command to count how many lines are in a file using a pipe.</p>
-                <div class="code-editor">
-                    <textarea id="challenge15" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(15)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint15')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint15" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>cat file.txt | wc -l</code></p>
-                </div>
-                <div id="feedback15"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 12: Redirection and Pipes</div>
-                <div class="quiz-content">
-                    <p>What does the pipe (|) do?</p>
-                    <div class="quiz-option"><input type="radio" id="q12a" name="q12" value="a"><label for="q12a">Redirects to file</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12b" name="q12" value="b"><label for="q12b">Takes output of left command as input to right command</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12c" name="q12" value="c"><label for="q12c">Deletes files</label></div>
-                    <div class="quiz-option"><input type="radio" id="q12d" name="q12" value="d"><label for="q12d">Appends to file</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q12', 'b')">Check Answer</button>
-                    <div id="q12-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 10: grep -->
-        <div class="section">
-            <h2>🔎 Searching with grep</h2>
-            
-            <div class="content-box">
-                <h3>The grep Command</h3>
-                <p><code>grep</code> searches for patterns in text. Essential for bioinformatics!</p>
-                <pre>$ grep "sequence_id" file.txt          # Find lines containing "sequence_id"
-$ grep -i "ERROR" log.txt              # Case-insensitive search (-i)
-$ grep -c "found" file.txt             # Count matching lines (-c)
-$ grep "@" reads.fastq | head          # Show first 10 sequence IDs from FASTQ
-$ grep -v "^#" data.txt                # Show all lines EXCEPT comments (-v)
-$ grep "pattern" file.txt | wc -l      # Count matches</pre>
-            </div>
-
-            <h3>Challenge 16: Basic grep Search</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Find Lines with Specific Pattern</div>
-                <p>Write a command to search for all lines containing "error" in a file named <code>log.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge16" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(16)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint16')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint16" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>grep "error" log.txt</code></p>
-                </div>
-                <div id="feedback16"></div>
-            </div>
-
-            <h3>Challenge 17: Case-Insensitive Search</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Search Without Worrying About Capitals</div>
-                <p>Write a command to search for "ERROR", "Error", or "error" (case-insensitive).</p>
-                <div class="code-editor">
-                    <textarea id="challenge17" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(17)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint17')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint17" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>grep -i "error" log.txt</code></p>
-                </div>
-                <div id="feedback17"></div>
-            </div>
-
-            <h3>Challenge 18: Count Matches</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">How Many Times Does This Appear?</div>
-                <p>Write a command to count how many lines contain "READ" in a file named <code>analysis.txt</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge18" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(18)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint18')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint18" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>grep -c "READ" analysis.txt</code></p>
-                </div>
-                <div id="feedback18"></div>
-            </div>
-
-            <h3>Challenge 19: Invert Search</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Find Lines WITHOUT a Pattern</div>
-                <p>Write a command to show all lines in a FASTQ file that do NOT start with "@" (exclude headers).</p>
-                <div class="code-editor">
-                    <textarea id="challenge19" placeholder="Type your command here..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(19)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint19')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint19" style="display: none;">
-                    <p><strong>Hint:</strong> Use <code>grep -v "^@" reads.fastq</code> (-v = invert match, ^ = start of line)</p>
-                </div>
-                <div id="feedback19"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 13: grep Mastery</div>
-                <div class="quiz-content">
-                    <p>What does grep -v do?</p>
-                    <div class="quiz-option"><input type="radio" id="q13a" name="q13" value="a"><label for="q13a">Shows only matching lines</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13b" name="q13" value="b"><label for="q13b">Shows all lines EXCEPT matching ones (inverts search)</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13c" name="q13" value="c"><label for="q13c">Validates grep syntax</label></div>
-                    <div class="quiz-option"><input type="radio" id="q13d" name="q13" value="d"><label for="q13d">Displays file version</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q13', 'b')">Check Answer</button>
-                    <div id="q13-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 11: less -->
-        <div class="section">
-            <h2>📄 Paging Through Files with less</h2>
-            
-            <div class="content-box">
-                <h3>Why Use less?</h3>
-                <p>For huge files, <code>cat</code> will overflow your terminal. Use <code>less</code> to page through:</p>
-                <pre>$ less huge_file.fastq
-   Inside less:
-   Space or Page Down → next page
-   b or Page Up       → previous page
-   / pattern          → search for pattern
-   n                  → next match
-   N                  → previous match
-   G                  → end of file
-   g                  → beginning of file
-   q                  → quit</pre>
-            </div>
-
-            <h3>Challenge 20: Search in less</h3>
-            <div class="challenge-box">
-                <div class="challenge-title">Find Pattern Inside less</div>
-                <p>Describe what keystroke(s) you would use to search for "GATC" while viewing a file in <code>less</code>.</p>
-                <div class="code-editor">
-                    <textarea id="challenge20" placeholder="Type your answer..."></textarea>
-                </div>
-                <div class="button-group">
-                    <button class="btn-primary" onclick="checkChallenge(20)">Check Answer</button>
-                    <button class="btn-secondary" onclick="toggleHint('hint20')">Show Answer</button>
-                </div>
-                <div class="hint-box" id="hint20" style="display: none;">
-                    <p><strong>Hint:</strong> Press <code>/</code> then type the pattern: <code>/GATC</code> then Enter</p>
-                </div>
-                <div id="feedback20"></div>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-title">Quiz 14: File Navigation</div>
-                <div class="quiz-content">
-                    <p>Inside less, how do you search for a pattern?</p>
-                    <div class="quiz-option"><input type="radio" id="q14a" name="q14" value="a"><label for="q14a">Type the pattern directly</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14b" name="q14" value="b"><label for="q14b">Press / then type the pattern</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14c" name="q14" value="c"><label for="q14c">Press ? then type the pattern</label></div>
-                    <div class="quiz-option"><input type="radio" id="q14d" name="q14" value="d"><label for="q14d">Both B and C work</label></div>
-                    <button class="btn-primary" onclick="checkQuiz('q14', 'd')">Check Answer</button>
-                    <div id="q14-feedback"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Completion -->
-        <div class="section" style="background: rgba(16, 185, 129, 0.1); border-color: var(--success);">
-            <h2 style="color: var(--success);"> [MISSION ACCOMPLISHED] </h2>
-            <p>> Current objective: Log off, touch some grass, and rest.</p>
         </div>
     </main>
 
     <footer>
+        <p><strong>🐚 BASH Intro Course</strong></p>
         <p>BASH Intro - Interactive Homework | ⚡ Mischief managed by Yaren </p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Check your lecture notes or ask in class!</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Check the lecture notes or ask in class!</p>
     </footer>
-    
-
-    <script>
-        let lastScrollY = 0;
-
-        // Hide/show header on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            const currentScrollY = window.scrollY;
-
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling down
-                header.classList.add('hide');
-            } else {
-                // Scrolling up
-                header.classList.remove('hide');
-            }
-            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-        });
-
-        const answers = {
-            1: ['pwd'],
-            2: ['ls', 'ls -l', 'ls -lh'],
-            3: ['ls -l', 'ls -lh'],
-            4: ['cd ~', 'cd~'],
-            5: ['head -n 10 data.txt', 'head -10 data.txt'],
-            6: ['tail -n 5 results.txt', 'tail -5 results.txt'],
-            7: ['tail -n +2 filename', 'tail -n +2'],
-            8: ['wc -l reads.fastq'],
-            9: ['wc -l reads.fastq | awk', 'divide by 4', '/4'],
-            10: ['cat sample1.txt sample2.txt > combined.txt'],
-            11: ['file mystery.data'],
-            12: ['mkdir -p project/data/raw'],
-            13: ['touch read{1..20}.fastq'],
-            14: ['cat new_data.txt >> existing_data.txt'],
-            15: ['cat file.txt | wc -l'],
-            16: ['grep "error" log.txt'],
-            17: ['grep -i "error"'],
-            18: ['grep -c "READ" analysis.txt'],
-            19: ['grep -v "^@" reads.fastq'],
-            20: ['/GATC', '/ GATC']
-        };
-
-        function checkChallenge(num) {
-            const input = document.getElementById(`challenge${num}`).value.trim().toLowerCase();
-            const expectedAnswers = answers[num];
-            const feedbackDiv = document.getElementById(`feedback${num}`);
-            
-            const isCorrect = expectedAnswers.some(answer => input.includes(answer.toLowerCase()));
-            
-            if (isCorrect) {
-                feedbackDiv.innerHTML = '<div class="feedback success">✅ Correct! Great job!</div>';
-                updateProgress();
-            } else {
-                feedbackDiv.innerHTML = '<div class="feedback error">❌ Not quite. Check the hint or try again!</div>';
-            }
-        }
-
-        function checkQuiz(quizId, correctValue) {
-            const selected = document.querySelector(`input[name="${quizId}"]:checked`);
-            const feedbackDiv = document.getElementById(`${quizId}-feedback`);
-            
-            if (!selected) {
-                feedbackDiv.innerHTML = '<div class="feedback error">❌ Please select an answer!</div>';
-                return;
-            }
-            
-            if (selected.value === correctValue) {
-                feedbackDiv.innerHTML = '<div class="feedback success">✅ Correct! Well done!</div>';
-                updateProgress();
-            } else {
-                feedbackDiv.innerHTML = '<div class="feedback error">❌ Not correct. Try again!</div>';
-            }
-        }
-
-        function toggleHint(hintId) {
-            const hint = document.getElementById(hintId);
-            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function updateProgress() {
-            const total = 34; // 20 challenges + 14 quizzes
-            const completed = document.querySelectorAll('.feedback.success').length;
-            const percentage = (completed / total) * 100;
-            document.getElementById('progress').style.width = percentage + '%';
-        }
-    </script>
 </body>
 </html>
